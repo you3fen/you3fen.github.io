@@ -52,49 +52,88 @@
                     <button
                         class="desktop-icon"
                         type="button"
-                        data-desktop-app="welcome"
-                        aria-label="打开系统说明"
+                        data-desktop-app="about"
+                        aria-label="打开关于我"
                     >
                         <span
-                            class="desktop-icon-art icon-computer"
+                            class="desktop-icon-art icon-person"
                             aria-hidden="true"
                         ></span>
-                        <span class="desktop-icon-label">系统说明</span>
+                        <span class="desktop-icon-label">关于我</span>
+                    </button>
+                    <button
+                        class="desktop-icon"
+                        type="button"
+                        data-desktop-app="projects"
+                        aria-label="打开项目"
+                    >
+                        <span
+                            class="desktop-icon-art icon-folder"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="desktop-icon-label">项目</span>
+                    </button>
+                    <button
+                        class="desktop-icon"
+                        type="button"
+                        data-desktop-app="resume"
+                        aria-label="打开简历"
+                    >
+                        <span
+                            class="desktop-icon-art icon-document"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="desktop-icon-label">简历</span>
+                    </button>
+                    <button
+                        class="desktop-icon"
+                        type="button"
+                        data-desktop-app="settings"
+                        aria-label="打开设置"
+                    >
+                        <span
+                            class="desktop-icon-art icon-settings"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="desktop-icon-label">设置</span>
                     </button>
                     <button
                         class="desktop-icon"
                         type="button"
                         data-desktop-app="engine-log"
-                        aria-label="打开引擎日志"
+                        aria-label="打开系统日志"
                     >
                         <span
                             class="desktop-icon-art icon-terminal"
                             aria-hidden="true"
                         ></span>
-                        <span class="desktop-icon-label">引擎日志</span>
+                        <span class="desktop-icon-label">系统日志</span>
                     </button>
                 </div>
 
                 <section class="window-layer" aria-label="应用窗口">
                     <article
-                        class="os-window"
-                        id="window-welcome"
+                        class="os-window about-window"
+                        id="window-about"
                         data-window
-                        data-app-id="welcome"
-                        data-task-label="系统说明"
+                        data-app-id="about"
+                        data-task-label="关于我"
                         data-open="true"
                         style="
-                            --window-x: clamp(56px, 16vw, 210px);
-                            --window-y: clamp(36px, 10vh, 100px);
-                            --window-width: 560px;
+                            --window-x: clamp(108px, 16vw, 220px);
+                            --window-y: clamp(34px, 8vh, 82px);
+                            --window-width: 590px;
                         "
                         tabindex="-1"
-                        aria-labelledby="welcome-title"
+                        aria-labelledby="about-title"
                     >
                         <header class="titlebar" data-drag-handle>
-                            <span class="app-mark" aria-hidden="true"></span>
-                            <span class="titlebar-text" id="welcome-title"
-                                >内层系统 · 窗口引擎</span
+                            <span
+                                class="app-mark about-mark"
+                                aria-hidden="true"
+                            ></span>
+                            <span class="titlebar-text" id="about-title"
+                                >关于我 — 自述.txt</span
                             >
                             <span class="window-controls">
                                 <button
@@ -120,38 +159,394 @@
 
                         <nav class="window-menu" aria-label="窗口菜单">
                             <button type="button"><u>文</u>件</button>
-                            <button type="button"><u>窗</u>口</button>
+                            <button type="button"><u>编</u>辑</button>
+                            <button type="button"><u>查</u>看</button>
                             <button type="button"><u>帮</u>助</button>
                         </nav>
 
                         <div class="window-content">
-                            <div class="inset-panel system-intro">
-                                <p class="eyebrow">SANFEN INNER SYSTEM / M2</p>
-                                <h1>桌面系统已载入</h1>
+                            <div class="inset-panel profile-sheet">
+                                <div class="profile-header">
+                                    <span
+                                        class="profile-pixel"
+                                        aria-hidden="true"
+                                    ></span>
+                                    <div>
+                                        <p class="eyebrow">
+                                            ABOUT_ME.TXT / 占位版本
+                                        </p>
+                                        <h1>三分</h1>
+                                        <p>把重复工作做成可运行系统的人</p>
+                                    </div>
+                                </div>
                                 <p>
-                                    这是内层系统的结构雏形。窗口引擎、桌面图标、开始菜单和系统时钟已经接通，
-                                    下一步会把“存在的证据”装进各个应用。
+                                    这里将放站主的正式自述。当前先用结构占位：我关心真实问题、可复核的过程，
+                                    也关心一个工具究竟有没有先交到人手里。
                                 </p>
-                                <dl class="engine-status">
+                                <dl class="profile-facts">
                                     <div>
-                                        <dt>运行方式</dt>
-                                        <dd>原生 ES Modules</dd>
+                                        <dt>坐标</dt>
+                                        <dd>佛山 · 占位</dd>
                                     </div>
                                     <div>
-                                        <dt>运行时依赖</dt>
-                                        <dd>0</dd>
+                                        <dt>角色</dt>
+                                        <dd>AI 原生运营 · 占位</dd>
                                     </div>
                                     <div>
-                                        <dt>构建步骤</dt>
-                                        <dd>不需要</dd>
+                                        <dt>关键词</dt>
+                                        <dd>证据 / 系统 / 交付</dd>
                                     </div>
                                 </dl>
+                                <div class="app-actions">
+                                    <button
+                                        class="retro-button is-default"
+                                        type="button"
+                                        data-open-app="projects"
+                                    >
+                                        查看项目
+                                    </button>
+                                    <button
+                                        class="retro-button"
+                                        type="button"
+                                        data-open-app="resume"
+                                    >
+                                        打开简历
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
                         <footer class="statusbar">
-                            <span>就绪</span>
-                            <span>存在的证据，正在装入。</span>
+                            <span>关于我</span>
+                            <span>正文仍为占位文案</span>
+                        </footer>
+                    </article>
+
+                    <article
+                        class="os-window projects-window"
+                        id="window-projects"
+                        data-window
+                        data-app-id="projects"
+                        data-task-label="项目"
+                        data-open="true"
+                        style="
+                            --window-x: clamp(390px, 47vw, 660px);
+                            --window-y: clamp(190px, 31vh, 310px);
+                            --window-width: 570px;
+                        "
+                        tabindex="-1"
+                        aria-labelledby="projects-title"
+                    >
+                        <header class="titlebar" data-drag-handle>
+                            <span
+                                class="app-mark projects-mark"
+                                aria-hidden="true"
+                            ></span>
+                            <span class="titlebar-text" id="projects-title"
+                                >项目 — 作品档案管理器</span
+                            >
+                            <span class="window-controls">
+                                <button
+                                    class="window-control control-minimize"
+                                    type="button"
+                                    data-window-action="minimize"
+                                    aria-label="最小化"
+                                ></button>
+                                <button
+                                    class="window-control control-maximize"
+                                    type="button"
+                                    data-window-action="maximize"
+                                    aria-label="最大化或还原"
+                                ></button>
+                                <button
+                                    class="window-control control-close"
+                                    type="button"
+                                    data-window-action="close"
+                                    aria-label="关闭"
+                                ></button>
+                            </span>
+                        </header>
+                        <nav class="window-menu" aria-label="窗口菜单">
+                            <button type="button"><u>文</u>件</button>
+                            <button type="button"><u>查</u>看</button>
+                            <button type="button"><u>证</u>据</button>
+                        </nav>
+                        <div class="window-content">
+                            <div class="project-grid">
+                                <article class="project-card">
+                                    <div class="project-card-head">
+                                        <span
+                                            class="project-disk"
+                                            aria-hidden="true"
+                                        ></span>
+                                        <div>
+                                            <p class="eyebrow">
+                                                PROJECT_01 / 运行中
+                                            </p>
+                                            <h2>bench-scout</h2>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        对标素材采集系统。这里将补充问题、方案、运行证据与复盘；
+                                        当前内容为结构占位。
+                                    </p>
+                                    <ul class="project-tags" aria-label="项目标签">
+                                        <li>生产系统</li>
+                                        <li>自动化</li>
+                                        <li>占位</li>
+                                    </ul>
+                                </article>
+                                <article class="project-card is-archived">
+                                    <div class="project-card-head">
+                                        <span
+                                            class="project-tape"
+                                            aria-hidden="true"
+                                        ></span>
+                                        <div>
+                                            <p class="eyebrow">
+                                                PROJECT_02 / 已归档
+                                            </p>
+                                            <h2>clip-montage</h2>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        台词混剪流水线。这里将记录做过什么、为什么停止；
+                                        当前内容为历史项目占位。
+                                    </p>
+                                    <ul class="project-tags" aria-label="项目标签">
+                                        <li>视频工具</li>
+                                        <li>主动停止</li>
+                                        <li>占位</li>
+                                    </ul>
+                                </article>
+                            </div>
+                        </div>
+                        <footer class="statusbar">
+                            <span>2 个项目</span>
+                            <span>内容待下一阶段补齐</span>
+                        </footer>
+                    </article>
+
+                    <article
+                        class="os-window resume-window"
+                        id="window-resume"
+                        data-window
+                        data-app-id="resume"
+                        data-task-label="简历"
+                        data-open="false"
+                        style="
+                            --window-x: clamp(180px, 25vw, 350px);
+                            --window-y: clamp(50px, 9vh, 90px);
+                            --window-width: 650px;
+                        "
+                        tabindex="-1"
+                        aria-labelledby="resume-title"
+                    >
+                        <header class="titlebar" data-drag-handle>
+                            <span
+                                class="app-mark resume-mark"
+                                aria-hidden="true"
+                            ></span>
+                            <span class="titlebar-text" id="resume-title"
+                                >简历 — 一页档案（占位）</span
+                            >
+                            <span class="window-controls">
+                                <button
+                                    class="window-control control-minimize"
+                                    type="button"
+                                    data-window-action="minimize"
+                                    aria-label="最小化"
+                                ></button>
+                                <button
+                                    class="window-control control-maximize"
+                                    type="button"
+                                    data-window-action="maximize"
+                                    aria-label="最大化或还原"
+                                ></button>
+                                <button
+                                    class="window-control control-close"
+                                    type="button"
+                                    data-window-action="close"
+                                    aria-label="关闭"
+                                ></button>
+                            </span>
+                        </header>
+                        <nav class="window-menu" aria-label="窗口菜单">
+                            <button type="button"><u>文</u>件</button>
+                            <button type="button"><u>打</u>印</button>
+                            <button type="button"><u>帮</u>助</button>
+                        </nav>
+                        <div class="window-content resume-canvas">
+                            <article class="resume-paper">
+                                <header>
+                                    <p class="eyebrow">RESUME.DOC / 草稿占位</p>
+                                    <h1>三分 · 个人简历</h1>
+                                    <p>联系方式与正式求职信息将在后续安全补入。</p>
+                                </header>
+                                <section>
+                                    <h2>个人摘要</h2>
+                                    <p>
+                                        一段面向目标岗位的摘要占位。最终版本会只保留可被项目和经历证明的内容。
+                                    </p>
+                                </section>
+                                <section>
+                                    <h2>经历</h2>
+                                    <p>20XX—20XX · 经历条目占位 · 结果与证据待补</p>
+                                    <p>20XX—20XX · 经历条目占位 · 结果与证据待补</p>
+                                </section>
+                                <section>
+                                    <h2>能力与作品</h2>
+                                    <p>
+                                        运营系统化 / AI 协作 / 质量意识 / bench-scout
+                                        等内容占位。
+                                    </p>
+                                </section>
+                                <div class="app-actions">
+                                    <button
+                                        class="retro-button"
+                                        type="button"
+                                        data-open-app="projects"
+                                    >
+                                        对照项目档案
+                                    </button>
+                                </div>
+                            </article>
+                        </div>
+                        <footer class="statusbar">
+                            <span>第 1 页</span>
+                            <span>尚未接入 PDF 下载</span>
+                        </footer>
+                    </article>
+
+                    <article
+                        class="os-window settings-window"
+                        id="window-settings"
+                        data-window
+                        data-app-id="settings"
+                        data-task-label="设置"
+                        data-open="false"
+                        style="
+                            --window-x: clamp(300px, 43vw, 590px);
+                            --window-y: clamp(90px, 16vh, 160px);
+                            --window-width: 520px;
+                        "
+                        tabindex="-1"
+                        aria-labelledby="settings-title"
+                    >
+                        <header class="titlebar" data-drag-handle>
+                            <span
+                                class="app-mark settings-mark"
+                                aria-hidden="true"
+                            ></span>
+                            <span class="titlebar-text" id="settings-title"
+                                >设置 — 外观</span
+                            >
+                            <span class="window-controls">
+                                <button
+                                    class="window-control control-minimize"
+                                    type="button"
+                                    data-window-action="minimize"
+                                    aria-label="最小化"
+                                ></button>
+                                <button
+                                    class="window-control control-maximize"
+                                    type="button"
+                                    data-window-action="maximize"
+                                    aria-label="最大化或还原"
+                                ></button>
+                                <button
+                                    class="window-control control-close"
+                                    type="button"
+                                    data-window-action="close"
+                                    aria-label="关闭"
+                                ></button>
+                            </span>
+                        </header>
+                        <div class="window-content settings-content">
+                            <fieldset class="settings-group">
+                                <legend>主题色</legend>
+                                <div class="theme-choices">
+                                    <button
+                                        type="button"
+                                        class="theme-choice"
+                                        data-theme-choice="ocean"
+                                        aria-pressed="true"
+                                    >
+                                        <span
+                                            class="theme-chip theme-ocean"
+                                            aria-hidden="true"
+                                        ></span>
+                                        海松绿
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="theme-choice"
+                                        data-theme-choice="plum"
+                                        aria-pressed="false"
+                                    >
+                                        <span
+                                            class="theme-chip theme-plum"
+                                            aria-hidden="true"
+                                        ></span>
+                                        葡萄灰
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="theme-choice"
+                                        data-theme-choice="slate"
+                                        aria-pressed="false"
+                                    >
+                                        <span
+                                            class="theme-chip theme-slate"
+                                            aria-hidden="true"
+                                        ></span>
+                                        工业蓝
+                                    </button>
+                                </div>
+                                <label class="color-control" for="desktop-color">
+                                    <span>自定义桌面色</span>
+                                    <input
+                                        id="desktop-color"
+                                        type="color"
+                                        value="#087f78"
+                                    />
+                                </label>
+                            </fieldset>
+                            <fieldset class="settings-group">
+                                <legend>界面字号</legend>
+                                <div class="font-control">
+                                    <span aria-hidden="true">小</span>
+                                    <input
+                                        id="font-size"
+                                        type="range"
+                                        min="12"
+                                        max="18"
+                                        step="1"
+                                        value="14"
+                                    />
+                                    <span aria-hidden="true">大</span>
+                                    <output id="font-size-output" for="font-size"
+                                        >14 像素</output
+                                    >
+                                </div>
+                            </fieldset>
+                            <div class="settings-preview">
+                                <span class="preview-title">效果预览</span>
+                                <p>窗口皮肤与中文字号会立即更新。</p>
+                            </div>
+                            <div class="app-actions">
+                                <button
+                                    class="retro-button"
+                                    type="button"
+                                    data-preferences-reset
+                                >
+                                    恢复默认
+                                </button>
+                            </div>
+                        </div>
+                        <footer class="statusbar">
+                            <span>本机设置</span>
+                            <span>偏好只保存在当前浏览器</span>
                         </footer>
                     </article>
 
@@ -161,7 +556,7 @@
                         data-window
                         data-app-id="engine-log"
                         data-task-label="引擎日志"
-                        data-open="true"
+                        data-open="false"
                         style="
                             --window-x: clamp(260px, 48vw, 650px);
                             --window-y: clamp(250px, 43vh, 430px);
@@ -202,10 +597,11 @@
                                 <p><span>OK</span> window.drag()</p>
                                 <p><span>OK</span> taskbar.sync()</p>
                                 <p><span>OK</span> shell.startup()</p>
+                                <p><span>OK</span> apps.register(4)</p>
                             </div>
                         </div>
                         <footer class="statusbar">
-                            <span>4 条记录</span>
+                            <span>5 条记录</span>
                             <span>无运行时依赖</span>
                         </footer>
                     </article>
@@ -218,13 +614,26 @@
                     <span>98</span>
                 </div>
                 <div class="start-menu-items">
-                    <button type="button" data-open-app="welcome">
-                        <span class="menu-icon menu-icon-computer" aria-hidden="true"></span>
-                        <span><strong>系统说明</strong><small>查看当前系统状态</small></span>
+                    <button type="button" data-open-app="about">
+                        <span class="menu-icon menu-icon-about" aria-hidden="true"></span>
+                        <span><strong>关于我</strong><small>打开站主自述</small></span>
                     </button>
+                    <button type="button" data-open-app="projects">
+                        <span class="menu-icon menu-icon-projects" aria-hidden="true"></span>
+                        <span><strong>项目</strong><small>查看作品档案</small></span>
+                    </button>
+                    <button type="button" data-open-app="resume">
+                        <span class="menu-icon menu-icon-resume" aria-hidden="true"></span>
+                        <span><strong>简历</strong><small>打开一页档案</small></span>
+                    </button>
+                    <button type="button" data-open-app="settings">
+                        <span class="menu-icon menu-icon-settings" aria-hidden="true"></span>
+                        <span><strong>设置</strong><small>更改主题与字号</small></span>
+                    </button>
+                    <div class="start-menu-separator" aria-hidden="true"></div>
                     <button type="button" data-open-app="engine-log">
                         <span class="menu-icon menu-icon-terminal" aria-hidden="true"></span>
-                        <span><strong>引擎日志</strong><small>查看启动记录</small></span>
+                        <span><strong>系统日志</strong><small>查看引擎记录</small></span>
                     </button>
                     <div class="start-menu-separator" aria-hidden="true"></div>
                     <button type="button" data-system-action="restart">

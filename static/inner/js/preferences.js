@@ -1,0 +1,173 @@
+const STORAGE_KEY = 'sanfen-inner-preferences-v1';
+
+const THEMES = Object.freeze({
+    ocean: { desktop: '#087f78' },
+    plum: { desktop: '#76526f' },
+    slate: { desktop: '#4f6d78' },
+});
+
+const DEFAULTS = Object.freeze({
+    theme: 'ocean',
+    customColor: THEMES.ocean.desktop,
+    fontSize: 14,
+});
+
+function isHexColor(value) {
+    return /^#[0-9a-f]{6}$/i.test(value);
+}
+
+function shiftHex(color, amount) {
+    const numeric = Number.parseInt(color.slice(1), 16);
+    const channels = [
+        (numeric >> 16) & 255,
+        (numeric >> 8) & 255,
+        numeric & 255,
+    ];
+    const shifted = channels
+        .map((channel) => Math.max(0, Math.min(255, channel + amount)))
+        .map((channel) => channel.toString(16).padStart(2, '0'))
+        .join('');
+
+    return `#${shifted}`;
+}
+
+export class PreferencesManager {
+    constructor(root) {
+        this.root = root;
+        this.themeButtons = document.querySelectorAll('[data-theme-choice]');
+        this.colorInput = document.querySelector('#desktop-color');
+        this.fontInput = document.querySelector('#font-size');
+        this.fontOutput = document.querySelector('#font-size-output');
+        this.resetButton = document.querySelector('[data-preferences-reset]');
+        this.preferences = { ...DEFAULTS };
+    }
+
+    start() {
+        this.preferences = this.load();
+        this.bind();
+        this.apply();
+    }
+
+    bind() {
+        this.themeButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const theme = button.dataset.themeChoice;
+                if (!THEMES[theme]) return;
+
+                this.preferences.theme = theme;
+                this.preferences.customColor = THEMES[theme].desktop;
+                this.apply();
+                this.save();
+            });
+        });
+
+        this.colorInput.addEventListener('input', () => {
+            if (!isHexColor(this.colorInput.value)) return;
+
+            this.preferences.theme = 'custom';
+            this.preferences.customColor = this.colorInput.value;
+            this.apply();
+            this.save();
+        });
+
+        this.fontInput.addEventListener('input', () => {
+            this.preferences.fontSize = this.validateFontSize(
+                this.fontInput.value,
+            );
+            this.apply();
+            this.save();
+        });
+
+        this.resetButton.addEventListener('click', () => this.reset());
+    }
+
+    apply() {
+        const { theme, customColor, fontSize } = this.preferences;
+        const isPreset = Boolean(THEMES[theme]);
+        const activeColor = isPreset ? THEMES[theme].desktop : customColor;
+
+        this.root.dataset.theme = isPreset ? theme : 'custom';
+        this.root.style.setProperty('--font-size', `${fontSize}px`);
+
+        if (isPreset) {
+            this.root.style.removeProperty('--desktop');
+            this.root.style.removeProperty('--title-active');
+            this.root.style.removeProperty('--title-active-end');
+        } else {
+            this.root.style.setProperty('--desktop', activeColor);
+            this.root.style.setProperty(
+                '--title-active',
+                shiftHex(activeColor, -54),
+            );
+            this.root.style.setProperty(
+                '--title-active-end',
+                shiftHex(activeColor, 28),
+            );
+        }
+
+        this.themeButtons.forEach((button) => {
+            button.setAttribute(
+                'aria-pressed',
+                button.dataset.themeChoice === theme ? 'true' : 'false',
+            );
+        });
+
+        this.colorInput.value = activeColor;
+        this.fontInput.value = String(fontSize);
+        this.fontOutput.value = `${fontSize} 像素`;
+
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta) themeMeta.content = activeColor;
+    }
+
+    load() {
+        try {
+            const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEY));
+            const theme =
+                stored?.theme === 'custom' || THEMES[stored?.theme]
+                    ? stored.theme
+                    : DEFAULTS.theme;
+            const customColor = isHexColor(stored?.customColor)
+                ? stored.customColor
+                : DEFAULTS.customColor;
+
+            return {
+                theme,
+                customColor,
+                fontSize: this.validateFontSize(stored?.fontSize),
+            };
+        } catch {
+            return { ...DEFAULTS };
+        }
+    }
+
+    save() {
+        try {
+            window.localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(this.preferences),
+            );
+        } catch {
+            // The interface still works when storage is unavailable.
+        }
+    }
+
+    reset() {
+        this.preferences = { ...DEFAULTS };
+        this.apply();
+
+        try {
+            window.localStorage.removeItem(STORAGE_KEY);
+        } catch {
+            // Nothing else is required when storage is unavailable.
+        }
+    }
+
+    validateFontSize(value) {
+        const parsed = Number.parseInt(value, 10);
+        if (!Number.isFinite(parsed)) return DEFAULTS.fontSize;
+        return Math.max(12, Math.min(18, parsed));
+    }
+}
+
+export { DEFAULTS as DEFAULT_PREFERENCES, STORAGE_KEY as PREFERENCES_KEY };
