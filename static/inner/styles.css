@@ -37,6 +37,163 @@ body {
     user-select: none;
 }
 
+.boot-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    color: #d9e5d3;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 3px,
+            rgb(255 255 255 / 3%) 3px 4px
+        ),
+        #020503;
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    transition:
+        opacity 180ms steps(4),
+        visibility 180ms;
+}
+
+.boot-screen[hidden] {
+    display: none;
+}
+
+.boot-screen.is-leaving {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.boot-terminal {
+    width: min(680px, 100%);
+    padding: clamp(18px, 4vw, 38px);
+    border: 2px solid #334735;
+    box-shadow:
+        inset 0 0 40px rgb(85 219 112 / 5%),
+        0 0 0 5px #090f0a;
+}
+
+.boot-terminal p {
+    margin: 0;
+}
+
+.boot-brand {
+    color: #fff;
+    font-size: clamp(1rem, 2.4vw, 1.35rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.boot-model {
+    margin-top: 7px !important;
+    color: #72c27e;
+    font-size: clamp(0.72rem, 1.7vw, 0.9rem);
+}
+
+.boot-divider {
+    height: 2px;
+    margin: 20px 0;
+    background: #4f7955;
+    box-shadow: 0 4px 0 #152819;
+}
+
+.boot-lines {
+    min-height: 7.4em;
+    color: #b7c8b4;
+    font-size: clamp(0.68rem, 1.8vw, 0.9rem);
+    line-height: 1.85;
+}
+
+.boot-lines p {
+    opacity: 0;
+    animation: boot-line 1ms steps(1) var(--boot-delay) forwards;
+}
+
+@keyframes boot-line {
+    to {
+        opacity: 1;
+    }
+}
+
+.boot-progress {
+    display: flex;
+    gap: 3px;
+    height: 18px;
+    margin-top: 16px;
+    padding: 3px;
+    border: 1px solid #517d58;
+}
+
+.boot-progress span {
+    flex: 1;
+    background: #64b671;
+    opacity: 0;
+    animation: boot-cell 1ms steps(1) forwards;
+}
+
+.boot-progress span:nth-child(1) {
+    animation-delay: 160ms;
+}
+
+.boot-progress span:nth-child(2) {
+    animation-delay: 260ms;
+}
+
+.boot-progress span:nth-child(3) {
+    animation-delay: 360ms;
+}
+
+.boot-progress span:nth-child(4) {
+    animation-delay: 460ms;
+}
+
+.boot-progress span:nth-child(5) {
+    animation-delay: 560ms;
+}
+
+.boot-progress span:nth-child(6) {
+    animation-delay: 660ms;
+}
+
+.boot-progress span:nth-child(7) {
+    animation-delay: 760ms;
+}
+
+.boot-progress span:nth-child(8) {
+    animation-delay: 860ms;
+}
+
+.boot-progress span:nth-child(9) {
+    animation-delay: 960ms;
+}
+
+.boot-progress span:nth-child(10) {
+    animation-delay: 1060ms;
+}
+
+.boot-progress span:nth-child(11) {
+    animation-delay: 1160ms;
+}
+
+.boot-progress span:nth-child(12) {
+    animation-delay: 1260ms;
+}
+
+@keyframes boot-cell {
+    to {
+        opacity: 1;
+    }
+}
+
+.boot-hint {
+    margin-top: 12px !important;
+    color: #718875;
+    font-size: 0.72rem;
+}
+
 button,
 input {
     font: inherit;
@@ -94,7 +251,108 @@ button {
 
 .desktop-icons {
     z-index: 1;
-    pointer-events: none;
+    display: grid;
+    width: 104px;
+    align-content: start;
+    gap: 13px;
+    padding: 16px 10px;
+    pointer-events: auto;
+}
+
+.desktop-icon {
+    display: grid;
+    width: 84px;
+    min-height: 76px;
+    justify-items: center;
+    align-content: start;
+    gap: 4px;
+    padding: 5px 3px;
+    color: #fff;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: default;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.desktop-icon:hover,
+.desktop-icon.is-selected,
+.desktop-icon:focus-visible {
+    border-color: rgb(255 255 255 / 56%);
+    outline: 1px dotted #fff;
+    outline-offset: -4px;
+    background: rgb(4 29 105 / 28%);
+}
+
+.desktop-icon.is-selected .desktop-icon-label {
+    background: var(--title-active);
+}
+
+.desktop-icon-art {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 36px;
+    filter: drop-shadow(2px 2px 0 rgb(0 0 0 / 32%));
+}
+
+.icon-computer::before {
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    width: 31px;
+    height: 25px;
+    content: "";
+    background: #d7d8ce;
+    border: 2px solid #171717;
+    box-shadow:
+        inset -3px -3px 0 #72736d,
+        inset 3px 3px 0 #fff;
+}
+
+.icon-computer::after {
+    position: absolute;
+    top: 6px;
+    left: 9px;
+    width: 21px;
+    height: 14px;
+    content: "";
+    background:
+        linear-gradient(140deg, #136d86, #58c0aa 65%, #c4efe5);
+    border: 1px solid #111;
+    box-shadow:
+        6px 22px 0 -4px #202020,
+        10px 25px 0 -5px #d7d8ce;
+}
+
+.icon-terminal::before {
+    position: absolute;
+    inset: 3px 2px 4px;
+    content: "";
+    background: #111;
+    border: 3px solid #d7d8ce;
+    box-shadow:
+        inset 0 0 0 1px #555,
+        2px 2px 0 #222;
+}
+
+.icon-terminal::after {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    width: 16px;
+    height: 3px;
+    content: "";
+    background: #6bd276;
+    box-shadow:
+        5px 5px 0 -1px #6bd276,
+        0 16px 0 -1px #74756e;
+}
+
+.desktop-icon-label {
+    max-width: 80px;
+    padding: 1px 4px;
+    font-size: 0.78rem;
+    line-height: 1.25;
 }
 
 .window-layer {
@@ -425,7 +683,7 @@ button {
     box-shadow: 0 -1px 0 var(--surface-dark);
 }
 
-.system-slot,
+.start-button,
 .task-button {
     display: inline-flex;
     height: 28px;
@@ -441,8 +699,15 @@ button {
     border-color: var(--surface-light) #171717 #171717 var(--surface-light);
 }
 
-.system-slot {
+.start-button {
     flex: 0 0 auto;
+    cursor: default;
+}
+
+.start-button[aria-expanded="true"] {
+    padding: 3px 9px 1px 11px;
+    background: var(--surface-mid);
+    border-color: #171717 var(--surface-light) var(--surface-light) #171717;
 }
 
 .system-glyph {
@@ -503,14 +768,176 @@ button {
     flex: 1;
 }
 
-.tray-placeholder {
+.system-tray {
+    display: flex;
     flex: 0 0 auto;
-    min-width: 60px;
+    min-width: 82px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
     padding: 5px 9px;
     text-align: center;
     border: 2px solid;
     border-color: var(--surface-dark) var(--surface-light) var(--surface-light)
         var(--surface-dark);
+}
+
+.tray-light {
+    width: 8px;
+    height: 8px;
+    background: #46a85b;
+    border: 1px solid #17421f;
+    box-shadow: inset 1px 1px 0 #8fe49d;
+}
+
+.system-tray time {
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 0.76rem;
+}
+
+.start-menu {
+    position: absolute;
+    bottom: calc(var(--taskbar-height) - 1px);
+    left: 3px;
+    z-index: 9999;
+    display: grid;
+    width: min(284px, calc(100% - 8px));
+    grid-template-columns: 34px 1fr;
+    padding: 3px;
+    background: var(--surface);
+    border: 2px solid;
+    border-color: var(--surface-light) #171717 #171717 var(--surface-light);
+    box-shadow:
+        inset 1px 1px 0 var(--surface-mid),
+        5px 5px 0 rgb(0 0 0 / 24%);
+}
+
+.start-menu[hidden] {
+    display: none;
+}
+
+.start-menu-rail {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 5px;
+    color: #d7d7d7;
+    background: #737373;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.08em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.start-menu-rail strong {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.start-menu-rail span {
+    font-size: 0.74rem;
+}
+
+.start-menu-items {
+    padding: 3px;
+}
+
+.start-menu-items button {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 38px 1fr;
+    align-items: center;
+    gap: 9px;
+    padding: 8px;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    cursor: default;
+}
+
+.start-menu-items button:hover,
+.start-menu-items button:focus-visible {
+    color: #fff;
+    background: var(--title-active);
+    outline: 1px dotted #fff;
+    outline-offset: -3px;
+}
+
+.start-menu-items button > span:last-child {
+    display: grid;
+    gap: 2px;
+}
+
+.start-menu-items small {
+    color: #4a4a4a;
+    font-size: 0.68rem;
+}
+
+.start-menu-items button:hover small,
+.start-menu-items button:focus-visible small {
+    color: #d9e3ff;
+}
+
+.start-menu-separator {
+    height: 2px;
+    margin: 4px 3px;
+    background: var(--surface-dark);
+    border-bottom: 1px solid var(--surface-light);
+}
+
+.menu-icon {
+    position: relative;
+    display: block;
+    width: 32px;
+    height: 28px;
+}
+
+.menu-icon-computer::before,
+.menu-icon-terminal::before {
+    position: absolute;
+    inset: 3px 1px;
+    content: "";
+    background: #e6e4d9;
+    border: 2px solid #111;
+    box-shadow: inset -3px -3px 0 #74746f;
+}
+
+.menu-icon-computer::after {
+    position: absolute;
+    inset: 8px 7px 9px 6px;
+    content: "";
+    background: #3fa29b;
+    border: 1px solid #111;
+}
+
+.menu-icon-terminal::after {
+    position: absolute;
+    inset: 8px 6px 8px;
+    content: "";
+    background: #111;
+    box-shadow: inset 5px 0 0 #70cf75;
+}
+
+.menu-icon-restart::before {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 21px;
+    height: 21px;
+    content: "";
+    border: 5px solid #236aa4;
+    border-right-color: transparent;
+    border-radius: 50%;
+}
+
+.menu-icon-restart::after {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    content: "";
+    border: 6px solid transparent;
+    border-bottom-color: #236aa4;
+    transform: rotate(38deg);
 }
 
 @media (max-width: 520px) {
@@ -524,15 +951,16 @@ button {
         grid-template-columns: 1fr;
     }
 
-    .system-slot span:last-child {
-        display: none;
-    }
-
     .task-list {
-        max-width: 62vw;
+        max-width: 58vw;
     }
 
-    .tray-placeholder {
+    .system-tray {
+        min-width: 64px;
+        padding-inline: 5px;
+    }
+
+    .tray-light {
         display: none;
     }
 }

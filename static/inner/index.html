@@ -9,9 +9,71 @@
         <link rel="stylesheet" href="./styles.css" />
     </head>
     <body>
+        <section
+            class="boot-screen"
+            id="boot-screen"
+            aria-label="系统正在启动"
+            aria-live="polite"
+        >
+            <div class="boot-terminal">
+                <p class="boot-brand">SFBIOS (C)2026 SANFEN</p>
+                <p class="boot-model">SANFEN PERSONAL COMPUTER / INNER-01</p>
+                <div class="boot-divider" aria-hidden="true"></div>
+                <div class="boot-lines" aria-hidden="true">
+                    <p style="--boot-delay: 80ms">
+                        MEMORY TEST ........ 640K OK
+                    </p>
+                    <p style="--boot-delay: 280ms">
+                        WINDOW ENGINE ...... READY
+                    </p>
+                    <p style="--boot-delay: 500ms">
+                        EVIDENCE DRIVE ..... MOUNTED
+                    </p>
+                    <p style="--boot-delay: 720ms">
+                        SHELL LANGUAGE ..... ZH-CN
+                    </p>
+                </div>
+                <div class="boot-progress" aria-label="启动进度">
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span>
+                </div>
+                <p class="boot-hint">正在进入内层系统 · 按任意键跳过</p>
+            </div>
+        </section>
+
         <div class="os-shell" id="os-shell">
             <main class="desktop" id="desktop" aria-label="三分内层系统桌面">
-                <div class="desktop-icons" id="desktop-icons" aria-label="桌面图标"></div>
+                <div
+                    class="desktop-icons"
+                    id="desktop-icons"
+                    aria-label="桌面图标"
+                >
+                    <button
+                        class="desktop-icon"
+                        type="button"
+                        data-desktop-app="welcome"
+                        aria-label="打开系统说明"
+                    >
+                        <span
+                            class="desktop-icon-art icon-computer"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="desktop-icon-label">系统说明</span>
+                    </button>
+                    <button
+                        class="desktop-icon"
+                        type="button"
+                        data-desktop-app="engine-log"
+                        aria-label="打开引擎日志"
+                    >
+                        <span
+                            class="desktop-icon-art icon-terminal"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="desktop-icon-label">引擎日志</span>
+                    </button>
+                </div>
 
                 <section class="window-layer" aria-label="应用窗口">
                     <article
@@ -64,11 +126,11 @@
 
                         <div class="window-content">
                             <div class="inset-panel system-intro">
-                                <p class="eyebrow">SANFEN INNER SYSTEM / M1</p>
-                                <h1>窗口引擎已载入</h1>
+                                <p class="eyebrow">SANFEN INNER SYSTEM / M2</p>
+                                <h1>桌面系统已载入</h1>
                                 <p>
-                                    这是内层系统的结构雏形。标题栏可以拖动，右上角可最小化、最大化和关闭；
-                                    任务栏负责恢复窗口，多窗口会自动管理前后层级。
+                                    这是内层系统的结构雏形。窗口引擎、桌面图标、开始菜单和系统时钟已经接通，
+                                    下一步会把“存在的证据”装进各个应用。
                                 </p>
                                 <dl class="engine-status">
                                     <div>
@@ -139,7 +201,7 @@
                                 <p><span>OK</span> desktop.mount()</p>
                                 <p><span>OK</span> window.drag()</p>
                                 <p><span>OK</span> taskbar.sync()</p>
-                                <p><span>--</span> 等待载入系统骨架</p>
+                                <p><span>OK</span> shell.startup()</p>
                             </div>
                         </div>
                         <footer class="statusbar">
@@ -150,14 +212,45 @@
                 </section>
             </main>
 
-            <footer class="taskbar" aria-label="任务栏">
-                <div class="system-slot" aria-label="系统状态">
-                    <span class="system-glyph" aria-hidden="true"></span>
-                    <span>三分系统</span>
+            <nav class="start-menu" id="start-menu" aria-label="开始菜单" hidden>
+                <div class="start-menu-rail" aria-hidden="true">
+                    <strong>SANFEN</strong>
+                    <span>98</span>
                 </div>
+                <div class="start-menu-items">
+                    <button type="button" data-open-app="welcome">
+                        <span class="menu-icon menu-icon-computer" aria-hidden="true"></span>
+                        <span><strong>系统说明</strong><small>查看当前系统状态</small></span>
+                    </button>
+                    <button type="button" data-open-app="engine-log">
+                        <span class="menu-icon menu-icon-terminal" aria-hidden="true"></span>
+                        <span><strong>引擎日志</strong><small>查看启动记录</small></span>
+                    </button>
+                    <div class="start-menu-separator" aria-hidden="true"></div>
+                    <button type="button" data-system-action="restart">
+                        <span class="menu-icon menu-icon-restart" aria-hidden="true"></span>
+                        <span><strong>重新启动</strong><small>重播 SFBIOS 引导</small></span>
+                    </button>
+                </div>
+            </nav>
+
+            <footer class="taskbar" aria-label="任务栏">
+                <button
+                    class="start-button"
+                    id="start-button"
+                    type="button"
+                    aria-controls="start-menu"
+                    aria-expanded="false"
+                >
+                    <span class="system-glyph" aria-hidden="true"></span>
+                    <span>开始</span>
+                </button>
                 <div class="task-list" id="task-list" aria-label="打开的窗口"></div>
                 <div class="taskbar-spacer"></div>
-                <div class="tray-placeholder" aria-label="系统就绪">就绪</div>
+                <div class="system-tray" aria-label="系统时钟">
+                    <span class="tray-light" aria-hidden="true"></span>
+                    <time id="taskbar-clock" datetime="">--:--</time>
+                </div>
             </footer>
         </div>
 
