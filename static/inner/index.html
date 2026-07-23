@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex" />
+        <title>三分 · 内层系统建设中</title>
+        <style>
+            html,
+            body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                display: grid;
+                place-items: center;
+                color: #111;
+                background: #fff;
+                font-family: system-ui, sans-serif;
+            }
+
+            main {
+                text-align: center;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            footer {
+                margin-top: 2rem;
+                font-size: 0.75rem;
+            }
+
+            a {
+                color: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <p>三分 · 内层系统建设中</p>
+            <footer>
+                3D 外壳基于
+                <a
+                    href="https://github.com/henryjeff/portfolio-website"
+                    target="_blank"
+                    rel="noreferrer"
+                >Henry Heffernan 的 MIT 开源项目</a>
+            </footer>
+        </main>
+        <script>
+            const forwardedEvents = [
+                'mousemove',
+                'mousedown',
+                'mouseup',
+                'keydown',
+                'keyup',
+            ];
+
+            for (const type of forwardedEvents) {
+                window.addEventListener(type, (event) => {
+                    const message = { type };
+
+                    if (type === 'mousemove') {
+                        message.clientX = event.clientX;
+                        message.clientY = event.clientY;
+                    }
+
+                    if (type === 'keydown' || type === 'keyup') {
+                        message.key = event.key;
+                    }
+
+                    window.parent.postMessage(message, window.location.origin);
+                });
+            }
+        </script>
+    </body>
+</html>
