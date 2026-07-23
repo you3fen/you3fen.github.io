@@ -4,77 +4,163 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="noindex" />
-        <title>三分 · 内层系统建设中</title>
-        <style>
-            html,
-            body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                display: grid;
-                place-items: center;
-                color: #111;
-                background: #fff;
-                font-family: system-ui, sans-serif;
-            }
-
-            main {
-                text-align: center;
-            }
-
-            p {
-                margin: 0;
-            }
-
-            footer {
-                margin-top: 2rem;
-                font-size: 0.75rem;
-            }
-
-            a {
-                color: inherit;
-            }
-        </style>
+        <meta name="theme-color" content="#087f78" />
+        <title>三分 · 内层系统</title>
+        <link rel="stylesheet" href="./styles.css" />
     </head>
     <body>
-        <main>
-            <p>三分 · 内层系统建设中</p>
-            <footer>
-                3D 外壳基于
-                <a
-                    href="https://github.com/henryjeff/portfolio-website"
-                    target="_blank"
-                    rel="noreferrer"
-                >Henry Heffernan 的 MIT 开源项目</a>
+        <div class="os-shell" id="os-shell">
+            <main class="desktop" id="desktop" aria-label="三分内层系统桌面">
+                <div class="desktop-icons" id="desktop-icons" aria-label="桌面图标"></div>
+
+                <section class="window-layer" aria-label="应用窗口">
+                    <article
+                        class="os-window"
+                        id="window-welcome"
+                        data-window
+                        data-app-id="welcome"
+                        data-task-label="系统说明"
+                        data-open="true"
+                        style="
+                            --window-x: clamp(56px, 16vw, 210px);
+                            --window-y: clamp(36px, 10vh, 100px);
+                            --window-width: 560px;
+                        "
+                        tabindex="-1"
+                        aria-labelledby="welcome-title"
+                    >
+                        <header class="titlebar" data-drag-handle>
+                            <span class="app-mark" aria-hidden="true"></span>
+                            <span class="titlebar-text" id="welcome-title"
+                                >内层系统 · 窗口引擎</span
+                            >
+                            <span class="window-controls">
+                                <button
+                                    class="window-control control-minimize"
+                                    type="button"
+                                    data-window-action="minimize"
+                                    aria-label="最小化"
+                                ></button>
+                                <button
+                                    class="window-control control-maximize"
+                                    type="button"
+                                    data-window-action="maximize"
+                                    aria-label="最大化或还原"
+                                ></button>
+                                <button
+                                    class="window-control control-close"
+                                    type="button"
+                                    data-window-action="close"
+                                    aria-label="关闭"
+                                ></button>
+                            </span>
+                        </header>
+
+                        <nav class="window-menu" aria-label="窗口菜单">
+                            <button type="button"><u>文</u>件</button>
+                            <button type="button"><u>窗</u>口</button>
+                            <button type="button"><u>帮</u>助</button>
+                        </nav>
+
+                        <div class="window-content">
+                            <div class="inset-panel system-intro">
+                                <p class="eyebrow">SANFEN INNER SYSTEM / M1</p>
+                                <h1>窗口引擎已载入</h1>
+                                <p>
+                                    这是内层系统的结构雏形。标题栏可以拖动，右上角可最小化、最大化和关闭；
+                                    任务栏负责恢复窗口，多窗口会自动管理前后层级。
+                                </p>
+                                <dl class="engine-status">
+                                    <div>
+                                        <dt>运行方式</dt>
+                                        <dd>原生 ES Modules</dd>
+                                    </div>
+                                    <div>
+                                        <dt>运行时依赖</dt>
+                                        <dd>0</dd>
+                                    </div>
+                                    <div>
+                                        <dt>构建步骤</dt>
+                                        <dd>不需要</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <footer class="statusbar">
+                            <span>就绪</span>
+                            <span>存在的证据，正在装入。</span>
+                        </footer>
+                    </article>
+
+                    <article
+                        class="os-window compact-window"
+                        id="window-engine-log"
+                        data-window
+                        data-app-id="engine-log"
+                        data-task-label="引擎日志"
+                        data-open="true"
+                        style="
+                            --window-x: clamp(260px, 48vw, 650px);
+                            --window-y: clamp(250px, 43vh, 430px);
+                            --window-width: 390px;
+                        "
+                        tabindex="-1"
+                        aria-labelledby="engine-log-title"
+                    >
+                        <header class="titlebar" data-drag-handle>
+                            <span class="app-mark log-mark" aria-hidden="true"></span>
+                            <span class="titlebar-text" id="engine-log-title"
+                                >引擎日志</span
+                            >
+                            <span class="window-controls">
+                                <button
+                                    class="window-control control-minimize"
+                                    type="button"
+                                    data-window-action="minimize"
+                                    aria-label="最小化"
+                                ></button>
+                                <button
+                                    class="window-control control-maximize"
+                                    type="button"
+                                    data-window-action="maximize"
+                                    aria-label="最大化或还原"
+                                ></button>
+                                <button
+                                    class="window-control control-close"
+                                    type="button"
+                                    data-window-action="close"
+                                    aria-label="关闭"
+                                ></button>
+                            </span>
+                        </header>
+                        <div class="window-content">
+                            <div class="inset-panel log-lines">
+                                <p><span>OK</span> desktop.mount()</p>
+                                <p><span>OK</span> window.drag()</p>
+                                <p><span>OK</span> taskbar.sync()</p>
+                                <p><span>--</span> 等待载入系统骨架</p>
+                            </div>
+                        </div>
+                        <footer class="statusbar">
+                            <span>4 条记录</span>
+                            <span>无运行时依赖</span>
+                        </footer>
+                    </article>
+                </section>
+            </main>
+
+            <footer class="taskbar" aria-label="任务栏">
+                <div class="system-slot" aria-label="系统状态">
+                    <span class="system-glyph" aria-hidden="true"></span>
+                    <span>三分系统</span>
+                </div>
+                <div class="task-list" id="task-list" aria-label="打开的窗口"></div>
+                <div class="taskbar-spacer"></div>
+                <div class="tray-placeholder" aria-label="系统就绪">就绪</div>
             </footer>
-        </main>
-        <script>
-            const forwardedEvents = [
-                'mousemove',
-                'mousedown',
-                'mouseup',
-                'keydown',
-                'keyup',
-            ];
+        </div>
 
-            for (const type of forwardedEvents) {
-                window.addEventListener(type, (event) => {
-                    const message = { type };
-
-                    if (type === 'mousemove') {
-                        message.clientX = event.clientX;
-                        message.clientY = event.clientY;
-                    }
-
-                    if (type === 'keydown' || type === 'keyup') {
-                        message.key = event.key;
-                    }
-
-                    window.parent.postMessage(message, window.location.origin);
-                });
-            }
-        </script>
+        <script type="module" src="./js/main.js"></script>
     </body>
 </html>
