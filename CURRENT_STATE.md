@@ -9,7 +9,8 @@
 - 目标仓库：`https://github.com/you3fen/you3fen.github.io`
 - 目标站点：`https://you3fen.github.io/`
 - 本地状态：`npm ci`、生产构建、桌面浏览器与 390×844 手机视口交互验收均已通过
-- 线上状态：待首次推送与 GitHub Pages 部署后更新
+- 线上状态：已部署并完成桌面/手机浏览器验收；GitHub Pages 状态为 `built`
+- Pages 配置：`build_type=workflow`、HTTPS 强制开启、`cname=null`
 - 自定义域名：未配置；没有创建 `CNAME`，没有改动 `yousanfen.com` 或阿里云 DNS
 
 ## 本阶段改动
@@ -98,11 +99,16 @@ npm run build
 - 桌面浏览器：3D 场景加载完成；点击 START 后可进入桌面视角；鼠标进入显示器后占位页可见；自由视角拖动后画面从桌前旋转到桌后。
 - 手机浏览器仿真：390×844、DPR 2；场景加载完成；可进入显示器；占位页元素唯一且可见；自由视角拖动后画面发生对应旋转。
 - 两轮浏览器控制台：0 error、0 warn。
+- 线上桌面：`https://you3fen.github.io/` 在 1280×720 下完成同一套加载、进屏幕和拖动验收。
+- 线上手机：同一地址在 390×844、DPR 2 下完成同一套验收；本次带设备仿真的首次完整加载约 75 秒，之后受 GitHub Pages CDN 缓存影响会更快。
+- 线上 HTTP：GitHub Pages 返回 HTTP/2 200，HTTPS 与 HSTS 生效。
+- 首次生产 workflow：GitHub Actions run `30034514240`，build 52 秒、deploy 10 秒，结论为 `success`。
 
 ## 已知限制
 
 - 生产 artifact 约 91 MiB，其中约 37 MiB 是上游显示器噪点视频；webpack 会给出资源体积告警。本阶段为了保持原视觉和音效不做压缩或裁剪。
 - 2022 年代码仍保留部分旧 API 与依赖，但当前锁定组合可以在 Node.js 24 上干净安装、开发和构建。
+- GitHub 当前官方 Pages actions 在 runner 上会产生“Node.js 20 已弃用、强制用 Node.js 24 运行”的 annotation；官方推荐版本仍为 `configure-pages@v5`、`upload-pages-artifact@v4`、`deploy-pages@v4`，本次构建与部署均成功。
 
 ## 明确未做
 
