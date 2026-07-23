@@ -542,6 +542,23 @@
                                     >
                                 </div>
                             </fieldset>
+                            <fieldset class="settings-group">
+                                <legend>系统反馈</legend>
+                                <label
+                                    class="sound-control"
+                                    for="sound-enabled"
+                                >
+                                    <input
+                                        id="sound-enabled"
+                                        type="checkbox"
+                                        checked
+                                    />
+                                    <span>启用系统提示音</span>
+                                </label>
+                                <p class="settings-note">
+                                    提示音由浏览器实时合成，不加载音频文件。
+                                </p>
+                            </fieldset>
                             <div class="settings-preview">
                                 <span class="preview-title">效果预览</span>
                                 <p>窗口皮肤与中文字号会立即更新。</p>
@@ -735,10 +752,11 @@
                                 <p><span>OK</span> taskbar.sync()</p>
                                 <p><span>OK</span> shell.startup()</p>
                                 <p><span>OK</span> apps.register(4)</p>
+                                <p><span>OK</span> sound.synthesize()</p>
                             </div>
                         </div>
                         <footer class="statusbar">
-                            <span>5 条记录</span>
+                            <span>6 条记录</span>
                             <span>无运行时依赖</span>
                         </footer>
                     </article>
@@ -798,7 +816,16 @@
                 <div class="task-list" id="task-list" aria-label="打开的窗口"></div>
                 <div class="taskbar-spacer"></div>
                 <div class="system-tray" aria-label="系统时钟">
-                    <span class="tray-light" aria-hidden="true"></span>
+                    <button
+                        class="tray-sound"
+                        id="taskbar-sound"
+                        type="button"
+                        data-sound-toggle
+                        aria-label="关闭系统提示音"
+                        aria-pressed="true"
+                    >
+                        <span class="speaker-glyph" aria-hidden="true"></span>
+                    </button>
                     <time id="taskbar-clock" datetime="">--:--</time>
                 </div>
             </footer>

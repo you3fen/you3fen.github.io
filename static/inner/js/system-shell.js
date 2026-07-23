@@ -60,7 +60,14 @@ export class DesktopShell {
         this.bindDesktopIcons();
         this.bindStartMenu();
         this.updateClock();
-        this.clockTimer = window.setInterval(() => this.updateClock(), 15000);
+        this.scheduleClock();
+        document.addEventListener('visibilitychange', () => {
+            window.clearTimeout(this.clockTimer);
+            if (!document.hidden) {
+                this.updateClock();
+                this.scheduleClock();
+            }
+        });
         this.boot.start();
     }
 
@@ -150,5 +157,14 @@ export class DesktopShell {
             dateStyle: 'full',
             timeStyle: 'short',
         }).format(now);
+    }
+
+    scheduleClock() {
+        const delayUntilNextMinute =
+            60000 - (Date.now() % 60000) + 40;
+        this.clockTimer = window.setTimeout(() => {
+            this.updateClock();
+            this.scheduleClock();
+        }, delayUntilNextMinute);
     }
 }

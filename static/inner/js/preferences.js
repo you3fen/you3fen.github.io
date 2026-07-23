@@ -10,6 +10,7 @@ const DEFAULTS = Object.freeze({
     theme: 'ocean',
     customColor: THEMES.ocean.desktop,
     fontSize: 14,
+    soundEnabled: true,
 });
 
 function isHexColor(value) {
@@ -38,6 +39,8 @@ export class PreferencesManager {
         this.colorInput = document.querySelector('#desktop-color');
         this.fontInput = document.querySelector('#font-size');
         this.fontOutput = document.querySelector('#font-size-output');
+        this.soundInput = document.querySelector('#sound-enabled');
+        this.soundButtons = document.querySelectorAll('[data-sound-toggle]');
         this.resetButton = document.querySelector('[data-preferences-reset]');
         this.preferences = { ...DEFAULTS };
     }
@@ -45,7 +48,7 @@ export class PreferencesManager {
     start() {
         this.preferences = this.load();
         this.bind();
-        this.apply();
+        this.apply('load');
     }
 
     bind() {
@@ -56,7 +59,7 @@ export class PreferencesManager {
 
                 this.preferences.theme = theme;
                 this.preferences.customColor = THEMES[theme].desktop;
-                this.apply();
+                this.apply('theme');
                 this.save();
             });
         });
@@ -66,7 +69,7 @@ export class PreferencesManager {
 
             this.preferences.theme = 'custom';
             this.preferences.customColor = this.colorInput.value;
-            this.apply();
+            this.apply('theme');
             this.save();
         });
 
@@ -74,15 +77,26 @@ export class PreferencesManager {
             this.preferences.fontSize = this.validateFontSize(
                 this.fontInput.value,
             );
-            this.apply();
+            this.apply('font');
             this.save();
+        });
+
+        this.soundInput.addEventListener('change', () => {
+            this.setSoundEnabled(this.soundInput.checked);
+        });
+
+        this.soundButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                this.setSoundEnabled(!this.preferences.soundEnabled);
+            });
         });
 
         this.resetButton.addEventListener('click', () => this.reset());
     }
 
-    apply() {
-        const { theme, customColor, fontSize } = this.preferences;
+    apply(source = 'update') {
+        const { theme, customColor, fontSize, soundEnabled } =
+            this.preferences;
         const isPreset = Boolean(THEMES[theme]);
         const activeColor = isPreset ? THEMES[theme].desktop : customColor;
 
@@ -115,9 +129,31 @@ export class PreferencesManager {
         this.colorInput.value = activeColor;
         this.fontInput.value = String(fontSize);
         this.fontOutput.value = `${fontSize} 像素`;
+        this.soundInput.checked = soundEnabled;
+        this.soundButtons.forEach((button) => {
+            button.setAttribute(
+                'aria-pressed',
+                soundEnabled ? 'true' : 'false',
+            );
+            button.setAttribute(
+                'aria-label',
+                soundEnabled ? '关闭系统提示音' : '开启系统提示音',
+            );
+        });
 
         const themeMeta = document.querySelector('meta[name="theme-color"]');
         if (themeMeta) themeMeta.content = activeColor;
+
+        document.dispatchEvent(
+            new CustomEvent('preferenceschange', {
+                detail: {
+                    source,
+                    soundEnabled,
+                    theme,
+                    fontSize,
+                },
+            }),
+        );
     }
 
     load() {
@@ -135,6 +171,10 @@ export class PreferencesManager {
                 theme,
                 customColor,
                 fontSize: this.validateFontSize(stored?.fontSize),
+                soundEnabled:
+                    typeof stored?.soundEnabled === 'boolean'
+                        ? stored.soundEnabled
+                        : DEFAULTS.soundEnabled,
             };
         } catch {
             return { ...DEFAULTS };
@@ -154,7 +194,7 @@ export class PreferencesManager {
 
     reset() {
         this.preferences = { ...DEFAULTS };
-        this.apply();
+        this.apply('reset');
 
         try {
             window.localStorage.removeItem(STORAGE_KEY);
@@ -167,6 +207,16 @@ export class PreferencesManager {
         const parsed = Number.parseInt(value, 10);
         if (!Number.isFinite(parsed)) return DEFAULTS.fontSize;
         return Math.max(12, Math.min(18, parsed));
+    }
+
+    setSoundEnabled(enabled) {
+        this.preferences.soundEnabled = Boolean(enabled);
+        this.apply('sound');
+        this.save();
+    }
+
+    isSoundEnabled() {
+        return this.preferences.soundEnabled;
     }
 }
 

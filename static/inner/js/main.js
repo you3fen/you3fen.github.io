@@ -1,5 +1,6 @@
 import { installEventBridge } from './event-bridge.js';
 import { PreferencesManager } from './preferences.js';
+import { SoundEngine } from './sound-engine.js';
 import { BootSequence, DesktopShell } from './system-shell.js';
 import { WindowManager } from './window-manager.js';
 
@@ -21,7 +22,12 @@ const shell = new DesktopShell({
     windows,
     boot,
 });
+const sound = new SoundEngine({
+    desktop: document.querySelector('#desktop'),
+    preferences,
+});
 
+sound.start();
 shell.start();
 
-window.innerOS = Object.freeze({ boot, preferences, shell, windows });
+window.innerOS = Object.freeze({ boot, preferences, shell, sound, windows });
