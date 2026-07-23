@@ -105,6 +105,7 @@ export class WindowManager {
         if (
             event.button !== 0 ||
             state.maximized ||
+            this.isCompactLayout() ||
             event.target.closest('[data-window-action]')
         ) {
             return;
@@ -231,6 +232,14 @@ export class WindowManager {
         }
 
         state.element.focus({ preventScroll: true });
+
+        if (this.isCompactLayout()) {
+            state.taskButton.scrollIntoView({
+                block: 'nearest',
+                inline: 'nearest',
+            });
+        }
+
         this.emitStateChange(state, 'focus');
     }
 
@@ -282,5 +291,9 @@ export class WindowManager {
                 },
             }),
         );
+    }
+
+    isCompactLayout() {
+        return window.matchMedia('(max-width: 600px)').matches;
     }
 }
