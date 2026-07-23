@@ -100,6 +100,18 @@
                     <button
                         class="desktop-icon"
                         type="button"
+                        data-desktop-app="trash"
+                        aria-label="打开回收站"
+                    >
+                        <span
+                            class="desktop-icon-art icon-trash"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="desktop-icon-label">回收站</span>
+                    </button>
+                    <button
+                        class="desktop-icon"
+                        type="button"
                         data-desktop-app="engine-log"
                         aria-label="打开系统日志"
                     >
@@ -551,6 +563,131 @@
                     </article>
 
                     <article
+                        class="os-window trash-window"
+                        id="window-trash"
+                        data-window
+                        data-app-id="trash"
+                        data-task-label="回收站"
+                        data-open="false"
+                        style="
+                            --window-x: clamp(210px, 31vw, 420px);
+                            --window-y: clamp(74px, 12vh, 125px);
+                            --window-width: 610px;
+                        "
+                        tabindex="-1"
+                        aria-labelledby="trash-title"
+                    >
+                        <header class="titlebar" data-drag-handle>
+                            <span
+                                class="app-mark trash-mark"
+                                aria-hidden="true"
+                            ></span>
+                            <span class="titlebar-text" id="trash-title"
+                                >回收站 — 已删除项目档案</span
+                            >
+                            <span class="window-controls">
+                                <button
+                                    class="window-control control-minimize"
+                                    type="button"
+                                    data-window-action="minimize"
+                                    aria-label="最小化"
+                                ></button>
+                                <button
+                                    class="window-control control-maximize"
+                                    type="button"
+                                    data-window-action="maximize"
+                                    aria-label="最大化或还原"
+                                ></button>
+                                <button
+                                    class="window-control control-close"
+                                    type="button"
+                                    data-window-action="close"
+                                    aria-label="关闭"
+                                ></button>
+                            </span>
+                        </header>
+                        <nav class="window-menu" aria-label="窗口菜单">
+                            <button type="button"><u>文</u>件</button>
+                            <button type="button"><u>查</u>看</button>
+                            <button type="button"><u>说</u>明</button>
+                        </nav>
+                        <div class="window-content trash-content">
+                            <header class="trash-heading">
+                                <span
+                                    class="trash-heading-icon"
+                                    aria-hidden="true"
+                                ></span>
+                                <div>
+                                    <p class="eyebrow">
+                                        DELETED_PROJECTS / 仍可被看见
+                                    </p>
+                                    <h1>这里不负责遗忘</h1>
+                                    <p>
+                                        停掉的项目也是存在的证据：做过什么、为什么停、留下了什么。
+                                    </p>
+                                </div>
+                            </header>
+                            <div class="deleted-projects">
+                                <article class="deleted-project">
+                                    <div class="deleted-project-top">
+                                        <span
+                                            class="deleted-icon textlens-icon"
+                                            aria-hidden="true"
+                                        ></span>
+                                        <div>
+                                            <p class="eyebrow">
+                                                ITEM_01 / 已删除
+                                            </p>
+                                            <h2>TextLens</h2>
+                                        </div>
+                                        <span class="deleted-stamp">已删除</span>
+                                    </div>
+                                    <p>
+                                        截图翻译工具。功能越磨越多，真实使用却还没先发生；
+                                        这条教训比代码更值得保留。
+                                    </p>
+                                    <p class="deletion-note">
+                                        留下：先验证需求，再追加精致。
+                                    </p>
+                                </article>
+                                <article class="deleted-project">
+                                    <div class="deleted-project-top">
+                                        <span
+                                            class="deleted-icon montage-icon"
+                                            aria-hidden="true"
+                                        ></span>
+                                        <div>
+                                            <p class="eyebrow">
+                                                ITEM_02 / 已删除
+                                            </p>
+                                            <h2>clip-montage</h2>
+                                        </div>
+                                        <span class="deleted-stamp">已删除</span>
+                                    </div>
+                                    <p>
+                                        台词混剪流水线。片源质量无法支撑目标，主动停止；
+                                        能及时砍掉，也是一种交付判断。
+                                    </p>
+                                    <p class="deletion-note">
+                                        留下：停止同样需要证据。
+                                    </p>
+                                </article>
+                            </div>
+                            <aside class="trash-principle" aria-label="回收站守则">
+                                <span>回收站守则 #01</span>
+                                <strong>先给人用,再优化</strong>
+                                <p>
+                                    被删除的是项目，不是从真实使用里学到的判断。
+                                </p>
+                            </aside>
+                        </div>
+                        <footer class="statusbar">
+                            <span>2 个对象</span>
+                            <span>删除不会抹掉证据</span>
+                        </footer>
+                    </article>
+
+                    <article
                         class="os-window compact-window"
                         id="window-engine-log"
                         data-window
@@ -629,6 +766,10 @@
                     <button type="button" data-open-app="settings">
                         <span class="menu-icon menu-icon-settings" aria-hidden="true"></span>
                         <span><strong>设置</strong><small>更改主题与字号</small></span>
+                    </button>
+                    <button type="button" data-open-app="trash">
+                        <span class="menu-icon menu-icon-trash" aria-hidden="true"></span>
+                        <span><strong>回收站</strong><small>查看已删除项目</small></span>
                     </button>
                     <div class="start-menu-separator" aria-hidden="true"></div>
                     <button type="button" data-open-app="engine-log">
