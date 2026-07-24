@@ -70,21 +70,21 @@
   <meta name="title" content="三分 · SANFEN">
   <meta name="description" content="三分的个人网站。当前阶段为 Three.js 3D 场景外壳。">
   <meta name="theme-color" content="#000000">
-  <link rel="canonical" href="https://you3fen.github.io/">
+  <link rel="canonical" href="https://yousanfen.com/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="zh_CN">
-  <meta property="og:url" content="https://you3fen.github.io/">
+  <meta property="og:url" content="https://yousanfen.com/">
   <meta property="og:title" content="三分 · SANFEN">
   <meta property="og:description" content="三分的个人网站。当前阶段为 Three.js 3D 场景外壳。">
-  <meta property="og:image" content="https://you3fen.github.io/images/preview-new.jpg">
-  <meta property="og:image:secure_url" content="https://you3fen.github.io/images/preview-new.jpg">
+  <meta property="og:image" content="https://yousanfen.com/images/preview-new.jpg">
+  <meta property="og:image:secure_url" content="https://yousanfen.com/images/preview-new.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://you3fen.github.io/">
+  <meta name="twitter:url" content="https://yousanfen.com/">
   <meta name="twitter:title" content="三分 · SANFEN">
   <meta name="twitter:description" content="三分的个人网站。当前阶段为 Three.js 3D 场景外壳。">
-  <meta name="twitter:image" content="https://you3fen.github.io/images/preview-new.jpg">
+  <meta name="twitter:image" content="https://yousanfen.com/images/preview-new.jpg">
 
   <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
 </head>
@@ -96,9 +96,11 @@
   <div id="ui-interactive"></div>
   <div id="ui"></div>
   <div id="monitor-videos">
-    <video id="video-1" muted loop autoplay width="0" height="0" src="../static/textures/monitor/video/base-static.mp4"
-      style="opacity: 0;"></video>
-    <video id="video-2" muted loop autoplay width="0" height="0"
+    <!-- CRT noise overlays. preload="none" keeps 7MB off the critical path;
+         MonitorScreen starts them once the scene is up. -->
+    <video id="video-1" muted loop playsinline preload="none" width="0" height="0"
+      src="../static/textures/monitor/video/base-static.mp4" style="opacity: 0;"></video>
+    <video id="video-2" muted loop playsinline preload="none" width="0" height="0"
       src="../static/textures/monitor/video/static-texture-layer.mp4" style="opacity: 0;"></video>
   </div>
 </body>

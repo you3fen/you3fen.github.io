@@ -7,6 +7,7 @@ import Resources from '../Utils/Resources';
 import Sizes from '../Utils/Sizes';
 import Camera from '../Camera/Camera';
 import EventEmitter from '../Utils/EventEmitter';
+import UIEventBus from '../UI/EventBus';
 
 const SCREEN_SIZE = { w: 1280, h: 1024 };
 const IFRAME_PADDING = 32;
@@ -322,6 +323,25 @@ export default class MonitorScreen extends EventEmitter {
             this.videoTextures[videoId] = new THREE.VideoTexture(
                 video as HTMLVideoElement
             );
+
+            // The tags carry preload="none", so nothing is fetched until here.
+            // Both are additive noise layers: until they arrive the screen just
+            // renders without them, which is why deferring is safe.
+            UIEventBus.on('loadingScreenDone', () => {
+                const element = video as HTMLVideoElement;
+
+                // play() alone starts the fetch; calling load() first would
+                // abort the pending play promise and leave the layer frozen.
+                const start = () =>
+                    element.play().catch(() => {
+                        /* blocked or interrupted; retried on canplay below */
+                    });
+
+                start();
+                element.addEventListener('canplay', () => {
+                    if (element.paused) start();
+                });
+            });
         }
     }
 
