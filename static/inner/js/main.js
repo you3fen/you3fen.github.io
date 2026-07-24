@@ -1,4 +1,5 @@
 import { installEventBridge } from './event-bridge.js';
+import { PicturesApp } from './pictures.js';
 import { PreferencesManager } from './preferences.js';
 import { SoundEngine } from './sound-engine.js';
 import { BootSequence, DesktopShell } from './system-shell.js';
@@ -27,7 +28,17 @@ const sound = new SoundEngine({
     preferences,
 });
 
+const pictures = new PicturesApp(document.querySelector('#window-pictures'));
+
 sound.start();
 shell.start();
+pictures.start();
 
-window.innerOS = Object.freeze({ boot, preferences, shell, sound, windows });
+window.innerOS = Object.freeze({
+    boot,
+    pictures,
+    preferences,
+    shell,
+    sound,
+    windows,
+});

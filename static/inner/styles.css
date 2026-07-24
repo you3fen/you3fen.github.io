@@ -2067,6 +2067,457 @@ button {
     transform: rotate(38deg);
 }
 
+/* ---------- My Pictures ---------- */
+
+.icon-pictures::before {
+    position: absolute;
+    inset: 4px 1px;
+    content: "";
+    background: linear-gradient(#8fd0e8 0 55%, #3f8f4e 55% 100%);
+    border: 2px solid #171717;
+    box-shadow: inset 2px 2px 0 #cdeaf6;
+}
+
+.icon-pictures::after {
+    position: absolute;
+    right: 5px;
+    bottom: 8px;
+    left: 4px;
+    height: 9px;
+    content: "";
+    background: #2f2f2f;
+    clip-path: polygon(0 100%, 34% 22%, 55% 62%, 74% 30%, 100% 100%);
+}
+
+.menu-icon-pictures::before {
+    position: absolute;
+    inset: 3px 1px;
+    content: "";
+    background: linear-gradient(#8fd0e8 0 55%, #3f8f4e 55% 100%);
+    border: 1px solid #0d0d0d;
+}
+
+.menu-icon-pictures::after {
+    position: absolute;
+    right: 3px;
+    bottom: 5px;
+    left: 3px;
+    height: 7px;
+    content: "";
+    background: #2f2f2f;
+    clip-path: polygon(0 100%, 36% 20%, 58% 60%, 76% 28%, 100% 100%);
+}
+
+.pictures-mark {
+    background: #8fd0e8;
+    box-shadow: inset -3px -3px 0 #3f8f4e;
+}
+
+.pictures-mark::before {
+    top: 8px;
+    left: 2px;
+    width: 11px;
+    height: 4px;
+    background: #14361d;
+    clip-path: polygon(0 100%, 34% 10%, 58% 60%, 78% 24%, 100% 100%);
+}
+
+.pictures-mark::after {
+    top: 2px;
+    right: 2px;
+    width: 3px;
+    height: 3px;
+    background: #f6e06a;
+    border-radius: 50%;
+}
+
+.pictures-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 0;
+    padding: 8px;
+}
+
+.pictures-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--surface-dark);
+    box-shadow: 0 1px 0 var(--surface-light);
+}
+
+.view-button {
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    padding: 3px 9px;
+    font: inherit;
+    font-size: 0.86em;
+    color: inherit;
+    background: var(--surface);
+    border: 2px solid;
+    border-color: var(--surface-light) #171717 #171717 var(--surface-light);
+    cursor: default;
+}
+
+.view-button.is-active {
+    background: var(--surface-mid);
+    border-color: #171717 var(--surface-light) var(--surface-light) #171717;
+}
+
+.view-button:focus-visible {
+    outline: 1px dotted #111;
+    outline-offset: -4px;
+}
+
+.view-glyph {
+    position: relative;
+    width: 11px;
+    height: 11px;
+    background: var(--surface-light);
+    border: 1px solid #171717;
+}
+
+.glyph-icons {
+    background:
+        linear-gradient(#3a6ea5 0 0) 1px 1px / 3px 3px no-repeat,
+        linear-gradient(#3a6ea5 0 0) 5px 1px / 3px 3px no-repeat,
+        linear-gradient(#3a6ea5 0 0) 1px 5px / 3px 3px no-repeat,
+        linear-gradient(#3a6ea5 0 0) 5px 5px / 3px 3px no-repeat,
+        var(--surface-light);
+}
+
+.glyph-details {
+    background:
+        linear-gradient(#3a6ea5 0 0) 1px 2px / 7px 1px no-repeat,
+        linear-gradient(#3a6ea5 0 0) 1px 5px / 7px 1px no-repeat,
+        linear-gradient(#3a6ea5 0 0) 1px 8px / 7px 1px no-repeat,
+        var(--surface-light);
+}
+
+.glyph-map {
+    background:
+        radial-gradient(circle, #b53a2f 0 1.6px, transparent 1.7px) 3px 3px /
+            9px 9px no-repeat,
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 2px,
+            rgb(0 0 0 / 22%) 2px 3px
+        ),
+        #cfe3c8;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.capacity {
+    position: relative;
+    width: 96px;
+    height: 12px;
+    background: var(--surface-mid);
+    border: 2px solid;
+    border-color: #171717 var(--surface-light) var(--surface-light) #171717;
+}
+
+.capacity-fill {
+    position: absolute;
+    inset: 1px auto 1px 1px;
+    width: calc(var(--fill, 0%) - 2px);
+    min-width: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        #1a7f74 0 5px,
+        transparent 5px 7px
+    );
+}
+
+.capacity-text {
+    font-size: 0.76em;
+    color: #3a3a3a;
+    white-space: nowrap;
+}
+
+.pictures-body {
+    flex: 1 1 auto;
+    min-height: 190px;
+    background: var(--surface-light);
+    border: 2px solid;
+    border-color: #171717 var(--surface-light) var(--surface-light) #171717;
+    overflow: auto;
+}
+
+/* Panes set their own display, which would otherwise beat the UA [hidden] rule. */
+.pictures-body > [hidden] {
+    display: none;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+    gap: 6px;
+    padding: 10px;
+}
+
+.album-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+    padding: 8px 4px 6px;
+    font: inherit;
+    color: inherit;
+    text-align: center;
+    background: none;
+    border: 1px dotted transparent;
+    cursor: default;
+}
+
+.album-icon.is-selected {
+    background: #0a2a72;
+    border-color: #f4f4f4;
+}
+
+.album-icon.is-selected .album-name,
+.album-icon.is-selected .album-count {
+    color: #fff;
+}
+
+.album-icon:focus-visible {
+    border-color: #111;
+}
+
+.album-art {
+    position: relative;
+    width: 36px;
+    height: 30px;
+    background: #e8c45e;
+    border: 2px solid #171717;
+    box-shadow:
+        inset 3px 3px 0 #fff0a1,
+        inset -3px -3px 0 #a57a20;
+}
+
+.album-art::before {
+    position: absolute;
+    inset: 5px 4px 4px 5px;
+    content: "";
+    background: linear-gradient(#8fd0e8 0 52%, #3f8f4e 52% 100%);
+    border: 1px solid #2b2b2b;
+}
+
+.album-art::after {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    left: 6px;
+    height: 8px;
+    content: "";
+    background: #24421f;
+    clip-path: polygon(0 100%, 32% 16%, 56% 62%, 76% 26%, 100% 100%);
+}
+
+.album-art.is-empty {
+    box-shadow:
+        inset 3px 3px 0 #f2f2f2,
+        inset -3px -3px 0 #9a9a9a;
+    background: #d7d7d7;
+    filter: grayscale(1);
+}
+
+.album-name {
+    font-size: 0.88em;
+    line-height: 1.25;
+}
+
+.album-count {
+    font-size: 0.74em;
+    color: #5a5a5a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.details-table {
+    width: 100%;
+    font-size: 0.86em;
+    border-collapse: collapse;
+}
+
+.details-table thead th {
+    position: sticky;
+    top: 0;
+    padding: 4px 8px;
+    text-align: left;
+    background: var(--surface);
+    border-right: 1px solid var(--surface-dark);
+    border-bottom: 1px solid var(--surface-dark);
+    box-shadow: inset -1px -1px 0 var(--surface-dark), inset 1px 1px 0
+        var(--surface-light);
+    font-weight: 400;
+}
+
+.details-table tbody th,
+.details-table tbody td {
+    padding: 4px 8px;
+    text-align: left;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.details-table tbody th {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.row-art {
+    flex: 0 0 14px;
+    width: 14px;
+    height: 12px;
+    background: #e8c45e;
+    border: 1px solid #171717;
+    box-shadow: inset -2px -2px 0 #a57a20;
+}
+
+.details-table tbody tr:nth-child(even) {
+    background: #f1f1f1;
+}
+
+.details-table tbody tr.is-selected {
+    color: #fff;
+    background: #0a2a72;
+}
+
+.details-table tbody tr.is-selected .row-art {
+    filter: grayscale(1) brightness(1.4);
+}
+
+.details-table .is-numeric {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.details-table .is-note {
+    white-space: normal;
+    color: #4a4a4a;
+}
+
+.details-table tbody tr.is-selected .is-note {
+    color: #d6def5;
+}
+
+.album-map {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+}
+
+.map-frame {
+    position: relative;
+    aspect-ratio: 32 / 29;
+    max-height: 260px;
+    background: #04170f;
+    border: 2px solid;
+    border-color: #0b0b0b #3f6b58 #3f6b58 #0b0b0b;
+    overflow: hidden;
+}
+
+.map-grid {
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 calc(100% / 8 - 1px),
+            rgb(90 220 160 / 22%) calc(100% / 8 - 1px) calc(100% / 8)
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 calc(100% / 8 - 1px),
+            rgb(90 220 160 / 22%) calc(100% / 8 - 1px) calc(100% / 8)
+        );
+}
+
+.map-plot {
+    position: absolute;
+    inset: 0;
+}
+
+.map-pin {
+    position: absolute;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 0;
+    font: inherit;
+    font-size: 0.72em;
+    color: #7dfbc0;
+    background: none;
+    border: 0;
+    transform: translate(-4px, -4px);
+    cursor: default;
+    white-space: nowrap;
+}
+
+.map-pin-dot {
+    width: 7px;
+    height: 7px;
+    background: #7dfbc0;
+    box-shadow: 0 0 0 3px rgb(125 251 192 / 22%);
+}
+
+.map-pin.is-selected .map-pin-dot {
+    background: #ffd479;
+    box-shadow: 0 0 0 5px rgb(255 212 121 / 28%);
+}
+
+.map-pin.is-selected {
+    color: #ffd479;
+}
+
+.map-pin:focus-visible {
+    outline: 1px dotted #7dfbc0;
+    outline-offset: 3px;
+}
+
+.map-axis {
+    position: absolute;
+    font-size: 0.66em;
+    color: rgb(125 251 192 / 55%);
+    letter-spacing: 0.06em;
+}
+
+.map-axis-x {
+    right: 4px;
+    bottom: 3px;
+}
+
+.map-axis-y {
+    top: 4px;
+    left: 4px;
+}
+
+.map-legend {
+    margin: 0;
+    padding: 0;
+    font-size: 0.78em;
+    list-style: none;
+}
+
+.map-legend li {
+    padding: 2px 0;
+    border-bottom: 1px dotted var(--surface-dark);
+}
+
+.map-legend li.is-muted {
+    color: #6a6a6a;
+    border-bottom: 0;
+}
+
 @media (max-width: 600px) {
     :root {
         --taskbar-height: 44px;
@@ -2265,6 +2716,35 @@ button {
 
     .start-menu-items button {
         min-height: 50px;
+    }
+
+    .pictures-toolbar {
+        row-gap: 6px;
+    }
+
+    .capacity,
+    .capacity-text {
+        display: none;
+    }
+
+    .album-grid {
+        grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+    }
+
+    .details-table {
+        font-size: 0.8em;
+    }
+
+    .details-table .is-note {
+        display: none;
+    }
+
+    .details-table thead th:nth-child(5) {
+        display: none;
+    }
+
+    .map-frame {
+        max-height: 210px;
     }
 }
 

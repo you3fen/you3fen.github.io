@@ -76,6 +76,18 @@
                     <button
                         class="desktop-icon"
                         type="button"
+                        data-desktop-app="pictures"
+                        aria-label="Open My Pictures"
+                    >
+                        <span
+                            class="desktop-icon-art icon-pictures"
+                            aria-hidden="true"
+                        ></span>
+                        <span class="desktop-icon-label">My Pictures</span>
+                    </button>
+                    <button
+                        class="desktop-icon"
+                        type="button"
                         data-desktop-app="tasks"
                         aria-label="Open Task Manager"
                     >
@@ -683,6 +695,159 @@
                     </article>
 
                     <article
+                        class="os-window pictures-window"
+                        id="window-pictures"
+                        data-window
+                        data-app-id="pictures"
+                        data-task-label="My Pictures"
+                        data-open="false"
+                        style="
+                            --window-x: clamp(150px, 24vw, 330px);
+                            --window-y: clamp(60px, 10vh, 105px);
+                            --window-width: 680px;
+                        "
+                        tabindex="-1"
+                        aria-labelledby="pictures-title"
+                    >
+                        <header class="titlebar" data-drag-handle>
+                            <span
+                                class="app-mark pictures-mark"
+                                aria-hidden="true"
+                            ></span>
+                            <span class="titlebar-text" id="pictures-title"
+                                >My Pictures</span
+                            >
+                            <span class="window-controls">
+                                <button
+                                    class="window-control control-minimize"
+                                    type="button"
+                                    data-window-action="minimize"
+                                    aria-label="Minimize"
+                                ></button>
+                                <button
+                                    class="window-control control-maximize"
+                                    type="button"
+                                    data-window-action="maximize"
+                                    aria-label="Maximize or restore"
+                                ></button>
+                                <button
+                                    class="window-control control-close"
+                                    type="button"
+                                    data-window-action="close"
+                                    aria-label="Close"
+                                ></button>
+                            </span>
+                        </header>
+                        <nav class="window-menu" aria-label="Window menu">
+                            <button type="button"><u>F</u>ile</button>
+                            <button type="button"><u>V</u>iew</button>
+                            <button type="button"><u>H</u>elp</button>
+                        </nav>
+                        <div class="window-content pictures-content">
+                            <div
+                                class="pictures-toolbar"
+                                role="group"
+                                aria-label="View mode"
+                            >
+                                <button
+                                    type="button"
+                                    class="view-button"
+                                    data-pictures-view="icons"
+                                    aria-pressed="true"
+                                >
+                                    <span class="view-glyph glyph-icons" aria-hidden="true"></span>
+                                    Icons
+                                </button>
+                                <button
+                                    type="button"
+                                    class="view-button"
+                                    data-pictures-view="details"
+                                    aria-pressed="false"
+                                >
+                                    <span class="view-glyph glyph-details" aria-hidden="true"></span>
+                                    Details
+                                </button>
+                                <button
+                                    type="button"
+                                    class="view-button"
+                                    data-pictures-view="map"
+                                    aria-pressed="false"
+                                >
+                                    <span class="view-glyph glyph-map" aria-hidden="true"></span>
+                                    Map
+                                </button>
+                                <span class="toolbar-spacer"></span>
+                                <span
+                                    class="capacity"
+                                    role="progressbar"
+                                    aria-label="Disk usage"
+                                    aria-valuemin="0"
+                                    aria-valuemax="500"
+                                    aria-valuenow="0"
+                                    data-pictures-capacity
+                                >
+                                    <span class="capacity-fill" aria-hidden="true"></span>
+                                </span>
+                                <span
+                                    class="capacity-text"
+                                    data-pictures-capacity-text
+                                    >0 of 500 used</span
+                                >
+                            </div>
+
+                            <div class="pictures-body">
+                                <div
+                                    class="album-grid"
+                                    data-pictures-pane="icons"
+                                ></div>
+
+                                <div
+                                    class="album-details"
+                                    data-pictures-pane="details"
+                                    hidden
+                                >
+                                    <table class="details-table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Place</th>
+                                                <th scope="col">When</th>
+                                                <th scope="col">Items</th>
+                                                <th scope="col">Note</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                                <div
+                                    class="album-map"
+                                    data-pictures-pane="map"
+                                    hidden
+                                >
+                                    <div class="map-frame">
+                                        <div class="map-grid" aria-hidden="true"></div>
+                                        <div class="map-plot" data-map-plot></div>
+                                        <span class="map-axis map-axis-x" aria-hidden="true"
+                                            >95°E — 127°E</span
+                                        >
+                                        <span class="map-axis map-axis-y" aria-hidden="true"
+                                            >46°N — 17°N</span
+                                        >
+                                    </div>
+                                    <ul class="map-legend" data-map-legend></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="statusbar">
+                            <span data-pictures-status>5 albums, 0 items</span>
+                            <span data-pictures-hint
+                                >disk empty — nothing uploaded yet</span
+                            >
+                        </footer>
+                    </article>
+
+                    <article
                         class="os-window trash-window"
                         id="window-trash"
                         data-window
@@ -862,6 +1027,10 @@
                     <button type="button" data-open-app="projects">
                         <span class="menu-icon menu-icon-projects" aria-hidden="true"></span>
                         <span><strong>Programs</strong><small>Things I've built</small></span>
+                    </button>
+                    <button type="button" data-open-app="pictures">
+                        <span class="menu-icon menu-icon-pictures" aria-hidden="true"></span>
+                        <span><strong>My Pictures</strong><small>Where I've been</small></span>
                     </button>
                     <button type="button" data-open-app="tasks">
                         <span class="menu-icon menu-icon-terminal" aria-hidden="true"></span>

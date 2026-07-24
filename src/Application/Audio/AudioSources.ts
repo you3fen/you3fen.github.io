@@ -74,7 +74,7 @@ export class AmbienceAudio extends AudioSource {
     constructor(manager: AudioManager) {
         super(manager);
         UIEventBus.on('loadingScreenDone', () => {
-            this.poolKey = this.manager.playAudio('office', {
+            this.poolKey = this.manager.playAudio('ambience', {
                 volume: 1,
                 loop: true,
                 randDetuneScale: 0,
