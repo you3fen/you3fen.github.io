@@ -15,9 +15,25 @@
 
 ## 内层系统
 
-### 当前交付
+> **2026-07-24 二次大改（`fbbd715`，已在 `main` 并上线）**：内层从「占位内容」重构为「用操作系统的组件映射站主本人」，并整体改为**全英文**。
+>
+> - 应用结构（桌面图标 / 开始菜单 / 任务栏一致）：
+>   - **About This PC** — 站主自述（系统信息式版面，真实内容，非占位）。
+>   - **Programs** — 作品即“已安装程序”：`bench-scout`（RUNNING）、`clip-montage`（ARCHIVED）。
+>   - **Task Manager** — 在学/在练即“正在运行的进程”：Learning English、Marathon training、Posture fix，均 RUNNING。
+>   - **Recycle Bin** — 只保留 `TextLens`（真正删除的项目）+ 规则 “Ship first, polish later”。
+>   - **Settings** — 主题 Ocean/Plum/Slate、自定义色、字号、系统提示音（持久化键 `sanfen-inner-preferences-v1` 不变）。
+>   - **System Log** — 引擎自检记录。
+> - **移除**：原“简历/Resume”应用整个删除（桌面图标、开始菜单、About 内跳转按钮均已清理）。
+> - **全英文**：所有界面文案 + `preferences.js`（字号单位、扬声器 aria）+ `window-manager.js`（默认标签）已英文化；唯一保留中文＝About 内“Sanfen 三分”名字点缀。
+> - **未变更**：窗口引擎、外壳事件桥（五类事件同源 postMessage）、换肤、提示音合成——机制原样保留，已实测。
+> - **未做**：`My Pictures`（体验/回忆相册）暂缺，等站主提供照片素材后再加；桌面已为其预留位置。
+>
+> 以下小节为该次改动前的历史记录，字段/命名以上方为准。
 
-- 开发分支：`inner-dev`，由 `main@8388a4e` 创建；未合并到 `main`。
+### 当前交付（历史 · 首版内层）
+
+- 开发分支：`inner-dev`，由 `main@8388a4e` 创建；已 ff 合并到 `main`。
 - 实现位置：`static/inner/`；原生 ES Modules + CSS，无运行时依赖、无单独构建步骤。
 - M1 窗口引擎（`94ea216`）：拖动、关闭、最小化、最大化、z-order、任务栏恢复。
 - M2 系统骨架（`d7745c9`）：SFBIOS 呼应式引导、桌面图标、开始菜单、分钟时钟。
