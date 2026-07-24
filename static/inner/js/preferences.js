@@ -128,7 +128,7 @@ export class PreferencesManager {
 
         this.colorInput.value = activeColor;
         this.fontInput.value = String(fontSize);
-        this.fontOutput.value = `${fontSize} 像素`;
+        this.fontOutput.value = `${fontSize} px`;
         this.soundInput.checked = soundEnabled;
         this.soundButtons.forEach((button) => {
             button.setAttribute(
@@ -137,7 +137,7 @@ export class PreferencesManager {
             );
             button.setAttribute(
                 'aria-label',
-                soundEnabled ? '关闭系统提示音' : '开启系统提示音',
+                soundEnabled ? 'Mute system sounds' : 'Unmute system sounds',
             );
         });
 

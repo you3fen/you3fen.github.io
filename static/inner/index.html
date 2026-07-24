@@ -1,18 +1,18 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="noindex" />
         <meta name="theme-color" content="#087f78" />
-        <title>三分 · 内层系统</title>
+        <title>Sanfen OS</title>
         <link rel="stylesheet" href="./styles.css" />
     </head>
     <body>
         <section
             class="boot-screen"
             id="boot-screen"
-            aria-label="系统正在启动"
+            aria-label="System booting"
             aria-live="polite"
         >
             <div class="boot-terminal">
@@ -30,106 +30,106 @@
                         EVIDENCE DRIVE ..... MOUNTED
                     </p>
                     <p style="--boot-delay: 720ms">
-                        SHELL LANGUAGE ..... ZH-CN
+                        SHELL LANGUAGE ..... EN-US
                     </p>
                 </div>
-                <div class="boot-progress" aria-label="启动进度">
+                <div class="boot-progress" aria-label="Boot progress">
                     <span></span><span></span><span></span><span></span>
                     <span></span><span></span><span></span><span></span>
                     <span></span><span></span><span></span><span></span>
                 </div>
-                <p class="boot-hint">正在进入内层系统 · 按任意键跳过</p>
+                <p class="boot-hint">Entering inner system · press any key to skip</p>
             </div>
         </section>
 
         <div class="os-shell" id="os-shell">
-            <main class="desktop" id="desktop" aria-label="三分内层系统桌面">
+            <main class="desktop" id="desktop" aria-label="Sanfen OS desktop">
                 <div
                     class="desktop-icons"
                     id="desktop-icons"
-                    aria-label="桌面图标"
+                    aria-label="Desktop icons"
                 >
                     <button
                         class="desktop-icon"
                         type="button"
                         data-desktop-app="about"
-                        aria-label="打开关于我"
+                        aria-label="Open About This PC"
                     >
                         <span
                             class="desktop-icon-art icon-person"
                             aria-hidden="true"
                         ></span>
-                        <span class="desktop-icon-label">关于我</span>
+                        <span class="desktop-icon-label">About This PC</span>
                     </button>
                     <button
                         class="desktop-icon"
                         type="button"
                         data-desktop-app="projects"
-                        aria-label="打开项目"
+                        aria-label="Open Programs"
                     >
                         <span
                             class="desktop-icon-art icon-folder"
                             aria-hidden="true"
                         ></span>
-                        <span class="desktop-icon-label">项目</span>
+                        <span class="desktop-icon-label">Programs</span>
                     </button>
                     <button
                         class="desktop-icon"
                         type="button"
-                        data-desktop-app="resume"
-                        aria-label="打开简历"
+                        data-desktop-app="tasks"
+                        aria-label="Open Task Manager"
                     >
                         <span
                             class="desktop-icon-art icon-document"
                             aria-hidden="true"
                         ></span>
-                        <span class="desktop-icon-label">简历</span>
+                        <span class="desktop-icon-label">Task Manager</span>
                     </button>
                     <button
                         class="desktop-icon"
                         type="button"
                         data-desktop-app="settings"
-                        aria-label="打开设置"
+                        aria-label="Open Settings"
                     >
                         <span
                             class="desktop-icon-art icon-settings"
                             aria-hidden="true"
                         ></span>
-                        <span class="desktop-icon-label">设置</span>
+                        <span class="desktop-icon-label">Settings</span>
                     </button>
                     <button
                         class="desktop-icon"
                         type="button"
                         data-desktop-app="trash"
-                        aria-label="打开回收站"
+                        aria-label="Open Recycle Bin"
                     >
                         <span
                             class="desktop-icon-art icon-trash"
                             aria-hidden="true"
                         ></span>
-                        <span class="desktop-icon-label">回收站</span>
+                        <span class="desktop-icon-label">Recycle Bin</span>
                     </button>
                     <button
                         class="desktop-icon"
                         type="button"
                         data-desktop-app="engine-log"
-                        aria-label="打开系统日志"
+                        aria-label="Open System Log"
                     >
                         <span
                             class="desktop-icon-art icon-terminal"
                             aria-hidden="true"
                         ></span>
-                        <span class="desktop-icon-label">系统日志</span>
+                        <span class="desktop-icon-label">System Log</span>
                     </button>
                 </div>
 
-                <section class="window-layer" aria-label="应用窗口">
+                <section class="window-layer" aria-label="Application windows">
                     <article
                         class="os-window about-window"
                         id="window-about"
                         data-window
                         data-app-id="about"
-                        data-task-label="关于我"
+                        data-task-label="About This PC"
                         data-open="true"
                         style="
                             --window-x: clamp(108px, 16vw, 220px);
@@ -145,35 +145,35 @@
                                 aria-hidden="true"
                             ></span>
                             <span class="titlebar-text" id="about-title"
-                                >关于我 — 自述.txt</span
+                                >About This PC</span
                             >
                             <span class="window-controls">
                                 <button
                                     class="window-control control-minimize"
                                     type="button"
                                     data-window-action="minimize"
-                                    aria-label="最小化"
+                                    aria-label="Minimize"
                                 ></button>
                                 <button
                                     class="window-control control-maximize"
                                     type="button"
                                     data-window-action="maximize"
-                                    aria-label="最大化或还原"
+                                    aria-label="Maximize or restore"
                                 ></button>
                                 <button
                                     class="window-control control-close"
                                     type="button"
                                     data-window-action="close"
-                                    aria-label="关闭"
+                                    aria-label="Close"
                                 ></button>
                             </span>
                         </header>
 
-                        <nav class="window-menu" aria-label="窗口菜单">
-                            <button type="button"><u>文</u>件</button>
-                            <button type="button"><u>编</u>辑</button>
-                            <button type="button"><u>查</u>看</button>
-                            <button type="button"><u>帮</u>助</button>
+                        <nav class="window-menu" aria-label="Window menu">
+                            <button type="button"><u>F</u>ile</button>
+                            <button type="button"><u>E</u>dit</button>
+                            <button type="button"><u>V</u>iew</button>
+                            <button type="button"><u>H</u>elp</button>
                         </nav>
 
                         <div class="window-content">
@@ -185,28 +185,56 @@
                                     ></span>
                                     <div>
                                         <p class="eyebrow">
-                                            ABOUT_ME.TXT / 占位版本
+                                            ABOUT THIS PC / SYSTEM
                                         </p>
-                                        <h1>三分</h1>
-                                        <p>把重复工作做成可运行系统的人</p>
+                                        <h1>Sanfen 三分</h1>
+                                        <p>
+                                            Making things I find fun — and
+                                            earning just enough to get by.
+                                        </p>
                                     </div>
                                 </div>
                                 <p>
-                                    这里将放站主的正式自述。当前先用结构占位：我关心真实问题、可复核的过程，
-                                    也关心一个工具究竟有没有先交到人手里。
+                                    27, community-college diploma, no coding
+                                    background. These past two years I've mostly
+                                    been home building things with AI: a scraper
+                                    I use every single day (bench-scout, still
+                                    running on my server), a little Mac
+                                    screenshot-translator (TextLens — made a few
+                                    versions, never liked any of them, deleted
+                                    it myself), and three bugs I filed on an
+                                    open-source app that the author actually
+                                    fixed.
+                                </p>
+                                <p>
+                                    Honestly, I don't have some grand plan,
+                                    nothing I absolutely have to pull off. I
+                                    believe in very few things. Being honest
+                                    with myself comes first — you can lie to
+                                    anyone, just not to yourself. And I care more
+                                    about how thick a life gets than how it ends
+                                    up. The rest is simple: make things I think
+                                    are fun, earn enough to live on.
+                                </p>
+                                <p>
+                                    Two half-marathons (best 1:48:37). At 12 I
+                                    took a train across the country by myself to
+                                    find my parents. When I want to go somewhere
+                                    or do something, I usually don't wait around
+                                    for anyone.
                                 </p>
                                 <dl class="profile-facts">
                                     <div>
-                                        <dt>坐标</dt>
-                                        <dd>佛山 · 占位</dd>
+                                        <dt>Location</dt>
+                                        <dd>Foshan, China</dd>
                                     </div>
                                     <div>
-                                        <dt>角色</dt>
-                                        <dd>AI 原生运营 · 占位</dd>
+                                        <dt>Role</dt>
+                                        <dd>Builds things with AI · Runner</dd>
                                     </div>
                                     <div>
-                                        <dt>关键词</dt>
-                                        <dd>证据 / 系统 / 交付</dd>
+                                        <dt>Keywords</dt>
+                                        <dd>Honesty · Depth · Fun</dd>
                                     </div>
                                 </dl>
                                 <div class="app-actions">
@@ -215,22 +243,22 @@
                                         type="button"
                                         data-open-app="projects"
                                     >
-                                        查看项目
+                                        Open Programs
                                     </button>
                                     <button
                                         class="retro-button"
                                         type="button"
-                                        data-open-app="resume"
+                                        data-open-app="tasks"
                                     >
-                                        打开简历
+                                        Open Task Manager
                                     </button>
                                 </div>
                             </div>
                         </div>
 
                         <footer class="statusbar">
-                            <span>关于我</span>
-                            <span>正文仍为占位文案</span>
+                            <span>About This PC</span>
+                            <span>Sanfen OS 1.0</span>
                         </footer>
                     </article>
 
@@ -239,7 +267,7 @@
                         id="window-projects"
                         data-window
                         data-app-id="projects"
-                        data-task-label="项目"
+                        data-task-label="Programs"
                         data-open="true"
                         style="
                             --window-x: clamp(390px, 47vw, 660px);
@@ -255,33 +283,33 @@
                                 aria-hidden="true"
                             ></span>
                             <span class="titlebar-text" id="projects-title"
-                                >项目 — 作品档案管理器</span
+                                >Programs</span
                             >
                             <span class="window-controls">
                                 <button
                                     class="window-control control-minimize"
                                     type="button"
                                     data-window-action="minimize"
-                                    aria-label="最小化"
+                                    aria-label="Minimize"
                                 ></button>
                                 <button
                                     class="window-control control-maximize"
                                     type="button"
                                     data-window-action="maximize"
-                                    aria-label="最大化或还原"
+                                    aria-label="Maximize or restore"
                                 ></button>
                                 <button
                                     class="window-control control-close"
                                     type="button"
                                     data-window-action="close"
-                                    aria-label="关闭"
+                                    aria-label="Close"
                                 ></button>
                             </span>
                         </header>
-                        <nav class="window-menu" aria-label="窗口菜单">
-                            <button type="button"><u>文</u>件</button>
-                            <button type="button"><u>查</u>看</button>
-                            <button type="button"><u>证</u>据</button>
+                        <nav class="window-menu" aria-label="Window menu">
+                            <button type="button"><u>F</u>ile</button>
+                            <button type="button"><u>V</u>iew</button>
+                            <button type="button"><u>H</u>elp</button>
                         </nav>
                         <div class="window-content">
                             <div class="project-grid">
@@ -293,19 +321,40 @@
                                         ></span>
                                         <div>
                                             <p class="eyebrow">
-                                                PROJECT_01 / 运行中
+                                                PROGRAM 01 / RUNNING
                                             </p>
                                             <h2>bench-scout</h2>
                                         </div>
                                     </div>
                                     <p>
-                                        对标素材采集系统。这里将补充问题、方案、运行证据与复盘；
-                                        当前内容为结构占位。
+                                        A tool for people doing content and
+                                        e-commerce. See a reference post on your
+                                        phone, send it over, and it pulls the
+                                        content from five platforms — WeChat,
+                                        Bilibili, RED, Douyin, Channels — into a
+                                        Feishu table you can search and filter.
                                     </p>
-                                    <ul class="project-tags" aria-label="项目标签">
-                                        <li>生产系统</li>
-                                        <li>自动化</li>
-                                        <li>占位</li>
+                                    <p>
+                                        The earlier version was someone else's,
+                                        built on Coze in 2025. It sold a couple
+                                        hundred copies, then got pulled — the
+                                        cost math didn't work (pay-per-call: the
+                                        more people used it, the more it lost). I
+                                        rebuilt it on my own server where the
+                                        cost is fixed, and added what it was
+                                        missing: retries, dedup, rate-limiting.
+                                        It's still running. I use it every day.
+                                    </p>
+                                    <p>
+                                        About 2,600 lines of Python, 45 tests. I
+                                        can't write code — I just broke it into
+                                        steps and had the AI build it, one piece
+                                        at a time.
+                                    </p>
+                                    <ul class="project-tags" aria-label="Tags">
+                                        <li>Running</li>
+                                        <li>Automation</li>
+                                        <li>Feishu</li>
                                     </ul>
                                 </article>
                                 <article class="project-card is-archived">
@@ -316,117 +365,170 @@
                                         ></span>
                                         <div>
                                             <p class="eyebrow">
-                                                PROJECT_02 / 已归档
+                                                PROGRAM 02 / ARCHIVED
                                             </p>
                                             <h2>clip-montage</h2>
                                         </div>
                                     </div>
                                     <p>
-                                        台词混剪流水线。这里将记录做过什么、为什么停止；
-                                        当前内容为历史项目占位。
+                                        An automated pipeline for movie-line
+                                        supercuts: give it a topic, it searches a
+                                        line library and cuts a short video. I
+                                        added a "director" layer — decide what
+                                        you want first, revise against the
+                                        footage you can actually get, and if the
+                                        paper cut doesn't hold up, don't render.
                                     </p>
-                                    <ul class="project-tags" aria-label="项目标签">
-                                        <li>视频工具</li>
-                                        <li>主动停止</li>
-                                        <li>占位</li>
+                                    <p>
+                                        Then I found the free footage only came
+                                        in 320p — below what I'd accept — so I
+                                        killed it. I've got this habit: if
+                                        something doesn't clear my own bar, I'd
+                                        rather not ship it. Back when I resold
+                                        clothes hangers, I bought them myself
+                                        first to check they could hold a heavy
+                                        coat.
+                                    </p>
+                                    <ul class="project-tags" aria-label="Tags">
+                                        <li>Video</li>
+                                        <li>Killed it</li>
+                                        <li>moviepy</li>
                                     </ul>
                                 </article>
                             </div>
                         </div>
                         <footer class="statusbar">
-                            <span>2 个项目</span>
-                            <span>内容待下一阶段补齐</span>
+                            <span>2 programs</span>
+                            <span>more coming</span>
                         </footer>
                     </article>
 
                     <article
-                        class="os-window resume-window"
-                        id="window-resume"
+                        class="os-window projects-window"
+                        id="window-tasks"
                         data-window
-                        data-app-id="resume"
-                        data-task-label="简历"
+                        data-app-id="tasks"
+                        data-task-label="Task Manager"
                         data-open="false"
                         style="
                             --window-x: clamp(180px, 25vw, 350px);
-                            --window-y: clamp(50px, 9vh, 90px);
-                            --window-width: 650px;
+                            --window-y: clamp(60px, 11vh, 110px);
+                            --window-width: 560px;
                         "
                         tabindex="-1"
-                        aria-labelledby="resume-title"
+                        aria-labelledby="tasks-title"
                     >
                         <header class="titlebar" data-drag-handle>
                             <span
-                                class="app-mark resume-mark"
+                                class="app-mark log-mark"
                                 aria-hidden="true"
                             ></span>
-                            <span class="titlebar-text" id="resume-title"
-                                >简历 — 一页档案（占位）</span
+                            <span class="titlebar-text" id="tasks-title"
+                                >Task Manager</span
                             >
                             <span class="window-controls">
                                 <button
                                     class="window-control control-minimize"
                                     type="button"
                                     data-window-action="minimize"
-                                    aria-label="最小化"
+                                    aria-label="Minimize"
                                 ></button>
                                 <button
                                     class="window-control control-maximize"
                                     type="button"
                                     data-window-action="maximize"
-                                    aria-label="最大化或还原"
+                                    aria-label="Maximize or restore"
                                 ></button>
                                 <button
                                     class="window-control control-close"
                                     type="button"
                                     data-window-action="close"
-                                    aria-label="关闭"
+                                    aria-label="Close"
                                 ></button>
                             </span>
                         </header>
-                        <nav class="window-menu" aria-label="窗口菜单">
-                            <button type="button"><u>文</u>件</button>
-                            <button type="button"><u>打</u>印</button>
-                            <button type="button"><u>帮</u>助</button>
+                        <nav class="window-menu" aria-label="Window menu">
+                            <button type="button"><u>F</u>ile</button>
+                            <button type="button"><u>V</u>iew</button>
+                            <button type="button"><u>H</u>elp</button>
                         </nav>
-                        <div class="window-content resume-canvas">
-                            <article class="resume-paper">
-                                <header>
-                                    <p class="eyebrow">RESUME.DOC / 草稿占位</p>
-                                    <h1>三分 · 个人简历</h1>
-                                    <p>联系方式与正式求职信息将在后续安全补入。</p>
-                                </header>
-                                <section>
-                                    <h2>个人摘要</h2>
+                        <div class="window-content">
+                            <div class="project-grid">
+                                <article class="project-card">
+                                    <div class="project-card-head">
+                                        <span
+                                            class="project-disk"
+                                            aria-hidden="true"
+                                        ></span>
+                                        <div>
+                                            <p class="eyebrow">
+                                                PROCESS 01 / RUNNING
+                                            </p>
+                                            <h2>Learning English</h2>
+                                        </div>
+                                    </div>
                                     <p>
-                                        一段面向目标岗位的摘要占位。最终版本会只保留可被项目和经历证明的内容。
+                                        Shadowing The Office plus Anki, every
+                                        day. Reading's fine — speaking is the
+                                        weak part, which is exactly the point.
                                     </p>
-                                </section>
-                                <section>
-                                    <h2>经历</h2>
-                                    <p>20XX—20XX · 经历条目占位 · 结果与证据待补</p>
-                                    <p>20XX—20XX · 经历条目占位 · 结果与证据待补</p>
-                                </section>
-                                <section>
-                                    <h2>能力与作品</h2>
+                                    <ul class="project-tags" aria-label="Tags">
+                                        <li>Daily</li>
+                                        <li>Shadowing</li>
+                                        <li>Anki</li>
+                                    </ul>
+                                </article>
+                                <article class="project-card">
+                                    <div class="project-card-head">
+                                        <span
+                                            class="project-disk"
+                                            aria-hidden="true"
+                                        ></span>
+                                        <div>
+                                            <p class="eyebrow">
+                                                PROCESS 02 / RUNNING
+                                            </p>
+                                            <h2>Marathon training</h2>
+                                        </div>
+                                    </div>
                                     <p>
-                                        运营系统化 / AI 协作 / 质量意识 / bench-scout
-                                        等内容占位。
+                                        Two half-marathons done (best 1:48:37).
+                                        Next process in the queue: a full one.
                                     </p>
-                                </section>
-                                <div class="app-actions">
-                                    <button
-                                        class="retro-button"
-                                        type="button"
-                                        data-open-app="projects"
-                                    >
-                                        对照项目档案
-                                    </button>
-                                </div>
-                            </article>
+                                    <ul class="project-tags" aria-label="Tags">
+                                        <li>Running</li>
+                                        <li>1:48:37</li>
+                                        <li>next: full</li>
+                                    </ul>
+                                </article>
+                                <article class="project-card">
+                                    <div class="project-card-head">
+                                        <span
+                                            class="project-disk"
+                                            aria-hidden="true"
+                                        ></span>
+                                        <div>
+                                            <p class="eyebrow">
+                                                PROCESS 03 / RUNNING
+                                            </p>
+                                            <h2>Posture fix</h2>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Lower-body posture. Daily drills,
+                                        checking every week whether it's actually
+                                        working.
+                                    </p>
+                                    <ul class="project-tags" aria-label="Tags">
+                                        <li>Daily</li>
+                                        <li>3-month cycle</li>
+                                    </ul>
+                                </article>
+                            </div>
                         </div>
                         <footer class="statusbar">
-                            <span>第 1 页</span>
-                            <span>尚未接入 PDF 下载</span>
+                            <span>3 processes running</span>
+                            <span>progress updates over time</span>
                         </footer>
                     </article>
 
@@ -435,7 +537,7 @@
                         id="window-settings"
                         data-window
                         data-app-id="settings"
-                        data-task-label="设置"
+                        data-task-label="Settings"
                         data-open="false"
                         style="
                             --window-x: clamp(300px, 43vw, 590px);
@@ -451,32 +553,32 @@
                                 aria-hidden="true"
                             ></span>
                             <span class="titlebar-text" id="settings-title"
-                                >设置 — 外观</span
+                                >Settings — Appearance</span
                             >
                             <span class="window-controls">
                                 <button
                                     class="window-control control-minimize"
                                     type="button"
                                     data-window-action="minimize"
-                                    aria-label="最小化"
+                                    aria-label="Minimize"
                                 ></button>
                                 <button
                                     class="window-control control-maximize"
                                     type="button"
                                     data-window-action="maximize"
-                                    aria-label="最大化或还原"
+                                    aria-label="Maximize or restore"
                                 ></button>
                                 <button
                                     class="window-control control-close"
                                     type="button"
                                     data-window-action="close"
-                                    aria-label="关闭"
+                                    aria-label="Close"
                                 ></button>
                             </span>
                         </header>
                         <div class="window-content settings-content">
                             <fieldset class="settings-group">
-                                <legend>主题色</legend>
+                                <legend>Theme</legend>
                                 <div class="theme-choices">
                                     <button
                                         type="button"
@@ -488,7 +590,7 @@
                                             class="theme-chip theme-ocean"
                                             aria-hidden="true"
                                         ></span>
-                                        海松绿
+                                        Ocean
                                     </button>
                                     <button
                                         type="button"
@@ -500,7 +602,7 @@
                                             class="theme-chip theme-plum"
                                             aria-hidden="true"
                                         ></span>
-                                        葡萄灰
+                                        Plum
                                     </button>
                                     <button
                                         type="button"
@@ -512,11 +614,11 @@
                                             class="theme-chip theme-slate"
                                             aria-hidden="true"
                                         ></span>
-                                        工业蓝
+                                        Slate
                                     </button>
                                 </div>
                                 <label class="color-control" for="desktop-color">
-                                    <span>自定义桌面色</span>
+                                    <span>Custom desktop color</span>
                                     <input
                                         id="desktop-color"
                                         type="color"
@@ -525,9 +627,9 @@
                                 </label>
                             </fieldset>
                             <fieldset class="settings-group">
-                                <legend>界面字号</legend>
+                                <legend>Font size</legend>
                                 <div class="font-control">
-                                    <span aria-hidden="true">小</span>
+                                    <span aria-hidden="true">A</span>
                                     <input
                                         id="font-size"
                                         type="range"
@@ -536,14 +638,14 @@
                                         step="1"
                                         value="14"
                                     />
-                                    <span aria-hidden="true">大</span>
+                                    <span aria-hidden="true">A</span>
                                     <output id="font-size-output" for="font-size"
-                                        >14 像素</output
+                                        >14 px</output
                                     >
                                 </div>
                             </fieldset>
                             <fieldset class="settings-group">
-                                <legend>系统反馈</legend>
+                                <legend>System feedback</legend>
                                 <label
                                     class="sound-control"
                                     for="sound-enabled"
@@ -553,15 +655,16 @@
                                         type="checkbox"
                                         checked
                                     />
-                                    <span>启用系统提示音</span>
+                                    <span>System sounds</span>
                                 </label>
                                 <p class="settings-note">
-                                    提示音由浏览器实时合成，不加载音频文件。
+                                    Sounds are synthesized live in the browser —
+                                    no audio files loaded.
                                 </p>
                             </fieldset>
                             <div class="settings-preview">
-                                <span class="preview-title">效果预览</span>
-                                <p>窗口皮肤与中文字号会立即更新。</p>
+                                <span class="preview-title">Preview</span>
+                                <p>Window skin and font size update instantly.</p>
                             </div>
                             <div class="app-actions">
                                 <button
@@ -569,13 +672,13 @@
                                     type="button"
                                     data-preferences-reset
                                 >
-                                    恢复默认
+                                    Reset to defaults
                                 </button>
                             </div>
                         </div>
                         <footer class="statusbar">
-                            <span>本机设置</span>
-                            <span>偏好只保存在当前浏览器</span>
+                            <span>Local settings</span>
+                            <span>saved only in this browser</span>
                         </footer>
                     </article>
 
@@ -584,7 +687,7 @@
                         id="window-trash"
                         data-window
                         data-app-id="trash"
-                        data-task-label="回收站"
+                        data-task-label="Recycle Bin"
                         data-open="false"
                         style="
                             --window-x: clamp(210px, 31vw, 420px);
@@ -600,33 +703,33 @@
                                 aria-hidden="true"
                             ></span>
                             <span class="titlebar-text" id="trash-title"
-                                >回收站 — 已删除项目档案</span
+                                >Recycle Bin</span
                             >
                             <span class="window-controls">
                                 <button
                                     class="window-control control-minimize"
                                     type="button"
                                     data-window-action="minimize"
-                                    aria-label="最小化"
+                                    aria-label="Minimize"
                                 ></button>
                                 <button
                                     class="window-control control-maximize"
                                     type="button"
                                     data-window-action="maximize"
-                                    aria-label="最大化或还原"
+                                    aria-label="Maximize or restore"
                                 ></button>
                                 <button
                                     class="window-control control-close"
                                     type="button"
                                     data-window-action="close"
-                                    aria-label="关闭"
+                                    aria-label="Close"
                                 ></button>
                             </span>
                         </header>
-                        <nav class="window-menu" aria-label="窗口菜单">
-                            <button type="button"><u>文</u>件</button>
-                            <button type="button"><u>查</u>看</button>
-                            <button type="button"><u>说</u>明</button>
+                        <nav class="window-menu" aria-label="Window menu">
+                            <button type="button"><u>F</u>ile</button>
+                            <button type="button"><u>V</u>iew</button>
+                            <button type="button"><u>H</u>elp</button>
                         </nav>
                         <div class="window-content trash-content">
                             <header class="trash-heading">
@@ -636,11 +739,12 @@
                                 ></span>
                                 <div>
                                     <p class="eyebrow">
-                                        DELETED_PROJECTS / 仍可被看见
+                                        DELETED / STILL VISIBLE
                                     </p>
-                                    <h1>这里不负责遗忘</h1>
+                                    <h1>This bin doesn't forget</h1>
                                     <p>
-                                        停掉的项目也是存在的证据：做过什么、为什么停、留下了什么。
+                                        A killed project is proof too: what I
+                                        made, why I stopped, what it left behind.
                                     </p>
                                 </div>
                             </header>
@@ -653,54 +757,36 @@
                                         ></span>
                                         <div>
                                             <p class="eyebrow">
-                                                ITEM_01 / 已删除
+                                                ITEM 01 / DELETED
                                             </p>
                                             <h2>TextLens</h2>
                                         </div>
-                                        <span class="deleted-stamp">已删除</span>
+                                        <span class="deleted-stamp">DELETED</span>
                                     </div>
                                     <p>
-                                        截图翻译工具。功能越磨越多，真实使用却还没先发生；
-                                        这条教训比代码更值得保留。
+                                        A Mac screenshot translator. I kept
+                                        polishing features, but real use never
+                                        actually started. The lesson is worth
+                                        more than the code.
                                     </p>
                                     <p class="deletion-note">
-                                        留下：先验证需求，再追加精致。
-                                    </p>
-                                </article>
-                                <article class="deleted-project">
-                                    <div class="deleted-project-top">
-                                        <span
-                                            class="deleted-icon montage-icon"
-                                            aria-hidden="true"
-                                        ></span>
-                                        <div>
-                                            <p class="eyebrow">
-                                                ITEM_02 / 已删除
-                                            </p>
-                                            <h2>clip-montage</h2>
-                                        </div>
-                                        <span class="deleted-stamp">已删除</span>
-                                    </div>
-                                    <p>
-                                        台词混剪流水线。片源质量无法支撑目标，主动停止；
-                                        能及时砍掉，也是一种交付判断。
-                                    </p>
-                                    <p class="deletion-note">
-                                        留下：停止同样需要证据。
+                                        Kept: prove the need first, add polish
+                                        later.
                                     </p>
                                 </article>
                             </div>
-                            <aside class="trash-principle" aria-label="回收站守则">
-                                <span>回收站守则 #01</span>
-                                <strong>先给人用,再优化</strong>
+                            <aside class="trash-principle" aria-label="Recycle bin rule">
+                                <span>RECYCLE BIN RULE #01</span>
+                                <strong>Ship first, polish later.</strong>
                                 <p>
-                                    被删除的是项目，不是从真实使用里学到的判断。
+                                    What gets deleted is the project — not what
+                                    you learned from real use.
                                 </p>
                             </aside>
                         </div>
                         <footer class="statusbar">
-                            <span>2 个对象</span>
-                            <span>删除不会抹掉证据</span>
+                            <span>1 item</span>
+                            <span>deleting doesn't erase the proof</span>
                         </footer>
                     </article>
 
@@ -709,7 +795,7 @@
                         id="window-engine-log"
                         data-window
                         data-app-id="engine-log"
-                        data-task-label="引擎日志"
+                        data-task-label="System Log"
                         data-open="false"
                         style="
                             --window-x: clamp(260px, 48vw, 650px);
@@ -722,26 +808,26 @@
                         <header class="titlebar" data-drag-handle>
                             <span class="app-mark log-mark" aria-hidden="true"></span>
                             <span class="titlebar-text" id="engine-log-title"
-                                >引擎日志</span
+                                >System Log</span
                             >
                             <span class="window-controls">
                                 <button
                                     class="window-control control-minimize"
                                     type="button"
                                     data-window-action="minimize"
-                                    aria-label="最小化"
+                                    aria-label="Minimize"
                                 ></button>
                                 <button
                                     class="window-control control-maximize"
                                     type="button"
                                     data-window-action="maximize"
-                                    aria-label="最大化或还原"
+                                    aria-label="Maximize or restore"
                                 ></button>
                                 <button
                                     class="window-control control-close"
                                     type="button"
                                     data-window-action="close"
-                                    aria-label="关闭"
+                                    aria-label="Close"
                                 ></button>
                             </span>
                         </header>
@@ -751,19 +837,19 @@
                                 <p><span>OK</span> window.drag()</p>
                                 <p><span>OK</span> taskbar.sync()</p>
                                 <p><span>OK</span> shell.startup()</p>
-                                <p><span>OK</span> apps.register(4)</p>
+                                <p><span>OK</span> apps.register(6)</p>
                                 <p><span>OK</span> sound.synthesize()</p>
                             </div>
                         </div>
                         <footer class="statusbar">
-                            <span>6 条记录</span>
-                            <span>无运行时依赖</span>
+                            <span>6 records</span>
+                            <span>no runtime dependencies</span>
                         </footer>
                     </article>
                 </section>
             </main>
 
-            <nav class="start-menu" id="start-menu" aria-label="开始菜单" hidden>
+            <nav class="start-menu" id="start-menu" aria-label="Start menu" hidden>
                 <div class="start-menu-rail" aria-hidden="true">
                     <strong>SANFEN</strong>
                     <span>98</span>
@@ -771,38 +857,38 @@
                 <div class="start-menu-items">
                     <button type="button" data-open-app="about">
                         <span class="menu-icon menu-icon-about" aria-hidden="true"></span>
-                        <span><strong>关于我</strong><small>打开站主自述</small></span>
+                        <span><strong>About This PC</strong><small>Who I am</small></span>
                     </button>
                     <button type="button" data-open-app="projects">
                         <span class="menu-icon menu-icon-projects" aria-hidden="true"></span>
-                        <span><strong>项目</strong><small>查看作品档案</small></span>
+                        <span><strong>Programs</strong><small>Things I've built</small></span>
                     </button>
-                    <button type="button" data-open-app="resume">
-                        <span class="menu-icon menu-icon-resume" aria-hidden="true"></span>
-                        <span><strong>简历</strong><small>打开一页档案</small></span>
+                    <button type="button" data-open-app="tasks">
+                        <span class="menu-icon menu-icon-terminal" aria-hidden="true"></span>
+                        <span><strong>Task Manager</strong><small>What's running now</small></span>
                     </button>
                     <button type="button" data-open-app="settings">
                         <span class="menu-icon menu-icon-settings" aria-hidden="true"></span>
-                        <span><strong>设置</strong><small>更改主题与字号</small></span>
+                        <span><strong>Settings</strong><small>Theme &amp; font</small></span>
                     </button>
                     <button type="button" data-open-app="trash">
                         <span class="menu-icon menu-icon-trash" aria-hidden="true"></span>
-                        <span><strong>回收站</strong><small>查看已删除项目</small></span>
+                        <span><strong>Recycle Bin</strong><small>Killed projects</small></span>
                     </button>
                     <div class="start-menu-separator" aria-hidden="true"></div>
                     <button type="button" data-open-app="engine-log">
                         <span class="menu-icon menu-icon-terminal" aria-hidden="true"></span>
-                        <span><strong>系统日志</strong><small>查看引擎记录</small></span>
+                        <span><strong>System Log</strong><small>Engine records</small></span>
                     </button>
                     <div class="start-menu-separator" aria-hidden="true"></div>
                     <button type="button" data-system-action="restart">
                         <span class="menu-icon menu-icon-restart" aria-hidden="true"></span>
-                        <span><strong>重新启动</strong><small>重播 SFBIOS 引导</small></span>
+                        <span><strong>Restart</strong><small>Replay SFBIOS boot</small></span>
                     </button>
                 </div>
             </nav>
 
-            <footer class="taskbar" aria-label="任务栏">
+            <footer class="taskbar" aria-label="Taskbar">
                 <button
                     class="start-button"
                     id="start-button"
@@ -811,17 +897,17 @@
                     aria-expanded="false"
                 >
                     <span class="system-glyph" aria-hidden="true"></span>
-                    <span>开始</span>
+                    <span>Start</span>
                 </button>
-                <div class="task-list" id="task-list" aria-label="打开的窗口"></div>
+                <div class="task-list" id="task-list" aria-label="Open windows"></div>
                 <div class="taskbar-spacer"></div>
-                <div class="system-tray" aria-label="系统时钟">
+                <div class="system-tray" aria-label="System clock">
                     <button
                         class="tray-sound"
                         id="taskbar-sound"
                         type="button"
                         data-sound-toggle
-                        aria-label="关闭系统提示音"
+                        aria-label="Mute system sounds"
                         aria-pressed="true"
                     >
                         <span class="speaker-glyph" aria-hidden="true"></span>

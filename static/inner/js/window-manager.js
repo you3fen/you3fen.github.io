@@ -48,7 +48,7 @@ export class WindowManager {
         button.type = 'button';
         button.dataset.taskApp = element.dataset.appId;
         button.textContent =
-            element.dataset.taskLabel || element.dataset.appId || '窗口';
+            element.dataset.taskLabel || element.dataset.appId || 'Window';
         button.setAttribute('aria-pressed', 'false');
 
         button.addEventListener('click', () => {
