@@ -1,4 +1,3 @@
-const path = require('path')
 const { merge } = require('webpack-merge')
 const commonConfiguration = require('./webpack.common.js')
 const portFinderSync = require('portfinder-sync')
@@ -25,11 +24,7 @@ module.exports = merge(
             allowedHosts: 'auto',
             hot: false,
             watchFiles: ['src/**', 'static/**'],
-            static:
-            {
-                watch: true,
-                directory: path.join(__dirname, '../static')
-            },
+            static: false,
             client:
             {
                 logging: 'none',

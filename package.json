@@ -2,19 +2,20 @@
     "name": "you3fen.github.io",
     "version": "0.1.0",
     "private": true,
-    "description": "三分个人网站的 Three.js 3D 外壳",
+    "description": "三分的私人陈列：做过的工具、跑过的路，以及未完成的念头",
     "repository": {
         "type": "git",
         "url": "https://github.com/you3fen/you3fen.github.io.git"
     },
-    "homepage": "https://you3fen.github.io/",
+    "homepage": "https://yousanfen.com/",
     "license": "MIT",
     "engines": {
         "node": "24.x"
     },
     "scripts": {
         "build": "webpack --config ./bundler/webpack.prod.js",
-        "dev": "webpack serve --config ./bundler/webpack.dev.js"
+        "dev": "webpack serve --config ./bundler/webpack.dev.js",
+        "test": "node --test tests/site.test.cjs"
     },
     "dependencies": {
         "@babel/core": "^7.16.12",
