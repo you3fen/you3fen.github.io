@@ -4,7 +4,7 @@
 
 线上地址：[yousanfen.com](https://yousanfen.com/)
 
-首页的三件概念物件分别进入半马经历、bench-scout 和 TextLens。每件收藏都有独立的静态网址，支持刷新、直接分享和浏览器前进后退。正文无需 JavaScript 即可阅读；脚本只负责明暗偏好。旧版 Sanfen OS 保留在 `/inner/`，从关于页进入。
+首页的三件概念物件分别进入半马经历、bench-scout 和 TextLens。每件收藏都有独立的静态网址，支持刷新、直接分享和浏览器前进后退。正文无需 JavaScript 即可阅读；脚本只负责明暗偏好。
 
 ## 开发与验证
 
@@ -40,11 +40,3 @@ npm test
 只推送用户自己的 `origin`。`main` 的 push 触发 GitHub Pages 工作流：安装依赖 → 构建 → 测试 → 发布 `public/`。域名继续使用 `static/CNAME` 中的 `yousanfen.com`。
 
 [当前实现说明](CURRENT_STATE.md)记录本版架构和验收范围。
-
-## 历史与致谢
-
-旧版 3D 外壳基于 Henry Heffernan 的 [henryjeff/portfolio-website](https://github.com/henryjeff/portfolio-website)，依据 MIT License 使用与修改。[LICENSE.md](LICENSE.md)中的原始版权和许可保持完整。
-
-当前私人陈列的页面、排版、交互与概念素材为本项目的新实现。旧版 `src/Application/`、`src/script.ts`、场景素材和相关工具依赖保留在仓库作为历史实现；它们不再进入新站的运行时，也不随新站发布。`static/inner/` 是独立保留的旧桌面。
-
-[场景改造清单](scene-customization.md)仅供旧 3D 版本历史参考。

@@ -12,7 +12,7 @@ test('every collection page is complete HTML with working local navigation and a
         const html = fs.readFileSync(path.join(output, page), 'utf8');
         assert.match(html, /<html lang="zh-CN"/);
         assert.equal((html.match(/<h1\b/g) || []).length, 1, `${page}: one page heading`);
-        assert.doesNotMatch(html, /\{\{\w+\}\}|<canvas|<video|webgl|3D 场景外壳/);
+        assert.doesNotMatch(html, /\{\{\w+\}\}|<canvas|<video|webgl|href="\/inner\/|旧版桌面/);
         const title = html.match(/<title>(.*?)<\/title>/)[1];
         assert.ok(!titles.has(title), `${page}: unique title`);
         titles.add(title);
@@ -29,9 +29,9 @@ test('every collection page is complete HTML with working local navigation and a
     assert.match(fs.readFileSync(path.join(output, '404.html'), 'utf8'), /name="robots" content="noindex"/);
 });
 
-test('the new site ships only its small runtime and preserves the old inner desktop', () => {
+test('the collection ships only its current assets and small runtime', () => {
     const assets = fs.readdirSync(output);
-    for (const legacy of ['models', 'textures', 'sounds', 'draco']) assert.ok(!assets.includes(legacy), `old ${legacy} should not be deployed`);
+    for (const legacy of ['inner', 'models', 'textures', 'audio', 'sounds', 'draco', 'images']) assert.ok(!assets.includes(legacy), `old ${legacy} should not be deployed`);
     const js = assets.filter(file => /^collection\..*\.js$/.test(file));
     const css = assets.filter(file => /^collection\..*\.css$/.test(file));
     assert.equal(js.length, 1);
@@ -40,6 +40,5 @@ test('the new site ships only its small runtime and preserves the old inner desk
     assert.ok(fs.statSync(path.join(output, css[0])).size < 25000, 'styles under 25 KB');
     assert.ok(fs.statSync(path.join(output, 'collection/objects.jpg')).size < 300000, 'single shared image under 300 KB');
     assert.equal(fs.readFileSync(path.join(output, 'CNAME'), 'utf8').trim(), 'yousanfen.com');
-    assert.equal(fs.readFileSync(path.join(output, 'inner/index.html'), 'utf8'), fs.readFileSync(path.resolve(__dirname, '../static/inner/index.html'), 'utf8'));
     assert.match(fs.readFileSync(path.join(output, 'about/index.html'), 'utf8'), /AI 概念图/);
 });

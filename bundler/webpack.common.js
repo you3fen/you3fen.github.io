@@ -35,7 +35,6 @@ module.exports = {
             patterns: [
                 { from: path.resolve(__dirname, '../static/collection'), to: 'collection' },
                 { from: path.resolve(__dirname, '../static/CNAME'), to: 'CNAME', toType: 'file' },
-                { from: path.resolve(__dirname, '../static/inner'), to: 'inner' },
                 { from: path.resolve(__dirname, '../LICENSE.md'), to: 'LICENSE.txt' },
                 { from: path.resolve(__dirname, '../static/robots.txt'), to: 'robots.txt' },
                 { from: path.resolve(__dirname, '../static/sitemap.xml'), to: 'sitemap.xml' },
