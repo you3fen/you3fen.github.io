@@ -1,0 +1,90 @@
+[
+  {
+    "id": "lax",
+    "name": "Lax Space",
+    "url": "https://www.laxspace.co/",
+    "kind": "完整网站",
+    "description": "在素色画布上铺开一卷立体胶带；作品图像就在胶带上，留下的路径可以倒放。",
+    "try": "在空白处连续移动或按住拖动，画出胶带路径；按空格倒卷，再按 Tab 切换观察角度。也可以点 View Works 看作品。",
+    "source": "https://tympanus.net/codrops/2025/09/23/lax-space-designing-with-duct-tape-and-everyday-chaos/",
+    "sourceLabel": "作者 Lax Chee 的项目拆解",
+    "question": "胶带的手感、立体材质和整体画面，哪些让你喜欢或不喜欢？"
+  },
+  {
+    "id": "thibault",
+    "name": "Thibault Guignand",
+    "url": "https://www.thibaultguignand.com/",
+    "kind": "完整网站",
+    "description": "创意前端开发者作品集，将全屏视频、网格、项目索引和实时着色器叠在同一界面中。",
+    "try": "点击 Discover my projects 进入；慢速、快速扫过项目标题，悬停不同项目切换画面，点进一个作品。",
+    "source": "https://tympanus.net/codrops/2026/05/06/from-shader-uniforms-to-clip-path-wipes-how-gsap-drives-my-portfolio/",
+    "sourceLabel": "作者在 Codrops 的项目拆解",
+    "question": "速度驱动的变形和色散，会让你感觉在操控内容，还是让内容变得难以阅读？"
+  },
+  {
+    "id": "lusion",
+    "name": "Lusion",
+    "url": "https://lusion.co/",
+    "kind": "完整网站",
+    "description": "互动工作室官网，以 3D 场景、长滚动、影片和案例入口展示其品牌与项目。",
+    "try": "从首页顶部开始滚动，间或移动光标并打开两个案例；分别留意光标的局部反馈、滚动带来的镜头或场景变化，以及动效是否仍让你知道下一步能去哪里。",
+    "source": "https://lusion.co/",
+    "sourceLabel": "Lusion 官方网站",
+    "question": "你更记住的是某种画面材质、镜头移动，还是内容被呈现出来的顺序？这种记忆是舒服还是负担？"
+  },
+  {
+    "id": "noomo",
+    "name": "Noomo",
+    "url": "https://storytelling.noomoagency.com/",
+    "kind": "完整网站",
+    "description": "Noomo 的沉浸式品牌叙事站，用凤凰、玻璃材质、项目晶体和滚动驱动的三维场景组织案例。",
+    "try": "先按页面提示进入，再连续滚动经过不同章节；悬停项目晶体并试用 Reimagine Phoenix 控制。注意哪些操作会改变材质、声音或场景，哪些只是推进镜头。",
+    "source": "https://noomoagency.com/insights/the-power-of-digital-storytelling-website",
+    "sourceLabel": "Noomo 官方幕后文章",
+    "question": "当网站像一段被导演过的旅程时，你愿意被它带着走多久？你希望在哪些地方重新取得控制？"
+  },
+  {
+    "id": "bruno",
+    "name": "Bruno Simon",
+    "url": "https://bruno-simon.com/",
+    "kind": "完整网站",
+    "description": "Bruno Simon 的个人作品集被做成可驾驶的三维小世界，作品、介绍和隐藏互动分布在地图内。",
+    "try": "按页面提示用方向键或 WASD 开车，拖动鼠标调整视角；靠近场景中的物件后按 Enter 互动，再试一次 Reset 或地图，感受导航是否像游玩。",
+    "source": "https://bruno-simon.com/",
+    "sourceLabel": "Bruno Simon 官方网站与操作说明",
+    "question": "把浏览变成游戏后，你是更投入，还是更急着找内容？哪些操作愿意学，哪些会阻碍阅读？"
+  },
+  {
+    "id": "podium",
+    "name": "Podium",
+    "url": "https://podium.global/",
+    "kind": "完整网站",
+    "description": "运动影像制作工作室网站，以大幅影像、颗粒表面和缓慢滚动来呈现案例与团队信息。",
+    "try": "先在首屏形状和影像附近分别慢移、快划光标，再向下滚动并打开一个项目；留意轨迹留下的局部材质变化，以及媒体如何从列表过渡到详情。",
+    "source": "https://tympanus.net/codrops/2026/06/23/podium-building-a-website-where-running-becomes-storytelling/",
+    "sourceLabel": "San Rita 在 Codrops 的项目拆解",
+    "question": "这种低强度的表面扰动会不会让素材更有触感？如果减弱或拿掉它，页面会失去什么？"
+  },
+  {
+    "id": "martin",
+    "name": "Martin Laxenaire",
+    "url": "https://www.martin-laxenaire.fr/",
+    "kind": "完整网站",
+    "description": "创意前端开发者作品集，把个人经历、项目和统计数据拆成需要互动解锁的网页游戏章节。",
+    "try": "用首屏的 Slide to begin 开始，按页面给出的互动逐段解锁；尝试点击、拖动和筛选统计图形，比较“完成动作”的满足感与获取信息的效率。",
+    "source": "https://tympanus.net/codrops/2025/10/06/self-doubt-and-the-quest-for-fun-how-i-ended-up-turning-my-portfolio-into-a-game/",
+    "sourceLabel": "作者在 Codrops 的游戏化设计复盘",
+    "question": "内容需要被解锁时，你会感到好奇还是被迫配合？哪些互动可以成为你网站内容结构的一部分？"
+  },
+  {
+    "id": "trails",
+    "name": "Image Motion Trails",
+    "url": "https://tympanus.net/Development/MotionTrailAnimations/index2.html",
+    "kind": "交互实验",
+    "description": "图片沿着鼠标经过的路径依次出现；页面提供 9 种轨迹版本，包含旋转、残留与碎片变化。",
+    "try": "在中间画布连续移动鼠标，画圈或折返；再点右下角 1–9 切换版本，比较轨迹的出现、停留和消退。",
+    "source": "https://tympanus.net/codrops/2023/10/18/ideas-for-image-motion-trail-animations/",
+    "sourceLabel": "作者 Manoela Ilic 的动效说明",
+    "question": "哪一个编号的轨迹最有感觉？喜欢它的速度、残留方式，还是图片随动作出现的感觉？"
+  }
+]
