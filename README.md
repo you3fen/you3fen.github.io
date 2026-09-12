@@ -35,6 +35,14 @@ npm test
 
 新增收藏时同步增加正文片段、构建路由、首页入口和 `static/sitemap.xml`，再执行构建与验证。
 
+## 本地设计候选（2026-09）
+
+运行 `npm run design:dev`，打开终端显示的本地地址，可体验光场、漫游、索引、长卷与回声五套候选。候选放在 `experiments/motion-lab/`，使用现有内容和明确标记的预留栏目；`npm run build` 的线上产物不包含试验室。
+
+若要使用选择页里的「对照现有私人陈列」，先执行一次 `npm run build`。本地服务只监听 `127.0.0.1`；默认端口 4173，可通过 `DESIGN_PORT` 覆盖。按 Ctrl+C 停止。
+
+[设计研究、交互与验收记录](docs/motion-lab-design.md)说明本轮参考、五种内容架构和已完成的检查。
+
 ## 发布
 
 只推送用户自己的 `origin`。`main` 的 push 触发 GitHub Pages 工作流：安装依赖 → 构建 → 测试 → 发布 `public/`。域名继续使用 `static/CNAME` 中的 `yousanfen.com`。

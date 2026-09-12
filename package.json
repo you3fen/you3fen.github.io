@@ -15,6 +15,7 @@
     "scripts": {
         "build": "webpack --config ./bundler/webpack.prod.js",
         "dev": "webpack serve --config ./bundler/webpack.dev.js",
+        "design:dev": "node scripts/serve-design-lab.cjs",
         "test": "node --test tests/site.test.cjs"
     },
     "devDependencies": {
