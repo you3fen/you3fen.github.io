@@ -7,7 +7,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const pages = [
     ['home', 'index.html', '三分 · 私人陈列', '做过的工具，跑过的路，以及那些没有完成的念头。'],
     ['running', 'objects/running/index.html', '跑过的路 · 三分', '两场半程马拉松，个人最好成绩 1:48:37。'],
-    ['bench-scout', 'objects/bench-scout/index.html', '做出来的东西 · 三分', 'bench-scout：把参考内容整理进可检索、可筛选的飞书表格。'],
+    ['bench-scout', 'objects/bench-scout/index.html', '创作台 · 三分', '创作台：把参考内容整理进可检索、可筛选的飞书表格。'],
     ['unfinished', 'objects/unfinished/index.html', '暂时放下的念头 · 三分', 'TextLens，一次没有继续做下去的 Mac 截图翻译工具尝试。'],
     ['about', 'about/index.html', '关于三分 · 私人陈列', '跑步，也用 AI 把想法做成工具。这里收着三分做过的一些事。'],
     ['404', '404.html', '这里暂时没有陈列 · 三分', '这件收藏暂时不在这里，回到三分的私人陈列看看。'],
