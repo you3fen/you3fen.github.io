@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="referrer" content="no-referrer">
+    <meta name="color-scheme" content="light dark">
+    <title>在生财 App 中阅读</title>
+    <style>
+        :root { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #23251f; background: #f7f8f3; }
+        * { box-sizing: border-box; }
+        body { min-height: 100svh; margin: 0; padding: 32px 24px; display: grid; place-items: center; }
+        main { width: 100%; max-width: 360px; text-align: center; }
+        .mark { margin: 0 auto 24px; width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; background: #e7edce; color: #394422; font-size: 30px; font-weight: 600; }
+        h1 { margin: 0 0 12px; font-size: 25px; line-height: 1.4; }
+        p { margin: 0 0 28px; color: #63665b; font-size: 16px; line-height: 1.7; }
+        a { color: inherit; text-underline-offset: 4px; }
+        .primary { display: block; padding: 16px 20px; border-radius: 14px; color: #fff; background: #394b24; text-decoration: none; font-weight: 600; }
+        .secondary { display: inline-block; margin-top: 24px; font-size: 14px; color: #63665b; }
+        a:focus-visible { outline: 3px solid #8eab52; outline-offset: 5px; }
+        [hidden] { display: none !important; }
+        @media (prefers-color-scheme: dark) {
+            :root { color: #f0f2e9; background: #171b15; }
+            p, .secondary { color: #b5bca9; }
+            .mark { background: #303b24; color: #d3e6ac; }
+            .primary { background: #c3d991; color: #1f2b12; }
+        }
+    </style>
+    <script src="./open.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="mark" aria-hidden="true">读</div>
+        <h1>在生财 App 中阅读</h1>
+        <p id="status" role="status">正在检查文章链接…</p>
+        <a id="open-app" class="primary" hidden>打开生财 App</a>
+        <a id="open-web" class="secondary" rel="noreferrer" hidden>在网页阅读</a>
+        <noscript><p>请启用 JavaScript 后重新打开此链接，才能转到 App 阅读。</p></noscript>
+    </main>
+</body>
+</html>

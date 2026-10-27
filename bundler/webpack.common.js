@@ -38,6 +38,7 @@ module.exports = {
                 { from: path.resolve(__dirname, '../LICENSE.md'), to: 'LICENSE.txt' },
                 { from: path.resolve(__dirname, '../static/robots.txt'), to: 'robots.txt' },
                 { from: path.resolve(__dirname, '../static/sitemap.xml'), to: 'sitemap.xml' },
+                { from: path.resolve(__dirname, '../static/scys'), to: 'scys' },
             ],
         }),
         ...pages.map(([page, filename, title, description]) => new HtmlWebpackPlugin({

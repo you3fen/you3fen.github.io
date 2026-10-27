@@ -35,6 +35,12 @@ npm test
 
 新增收藏时同步增加正文片段、构建路由、首页入口和 `static/sitemap.xml`，再执行构建与验证。
 
+## 生财 App 文章链接
+
+`/scys/?type=xq_topic&id=帖子ID` 和 `/scys/?type=forum_topic&id=帖子ID` 用于从 AI 回复打开自制生财 App。页面在 iPhone 上尝试唤起一次，浏览器未允许自动打开时可点“打开生财 App”；也保留原文网页入口。它是网页唤起方式，需要手机已安装支持 `scys-reader://` 的 App，不是 Universal Links。
+
+让 AI 输出 `[文章标题](https://yousanfen.com/scys/?type=xq_topic&id=22258244882548821)`，保持实际帖子类型与完整数字 ID，不要把 ID 当数字运算。页面仅构造固定生财域名的文章地址，不接受任意目标网址，不发送文章内容或登录信息。
+
 ## 发布
 
 只推送用户自己的 `origin`。`main` 的 push 触发 GitHub Pages 工作流：安装依赖 → 构建 → 测试 → 发布 `public/`。域名继续使用 `static/CNAME` 中的 `yousanfen.com`。
